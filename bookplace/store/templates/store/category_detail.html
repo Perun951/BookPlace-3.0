@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+{% block title %}
+{{ category.title }}
+{% endblock %}
+
+{% block content %}
+<div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
+    <h1 class="card-title mx-auto">{{ category.title }}</h1>
+    {% include 'store/partials/products2.html' %}
+</div>
+{% endblock %}

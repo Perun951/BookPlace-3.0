@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+{% block title %}
+Rezultate
+{% endblock %}
+
+{% block content %}
+<div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
+    <h1 class="card-title mx-auto">Rezultate cautare:</h1>
+{% if products %}
+    {% include 'store/partials/results.html' %}
+{% else %}
+
+<div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
+    <div class="d-flex justify-content-around flex-wrap gap-3 align-items-center">
+        <div class=" text-bg-warning mb-3 text-dark rounded-4" style="width: 30vw; height: 50%;">
+            <p>
+                <h2 align="center">Nu au fost gasite rezultate!<h4>
+            </p>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

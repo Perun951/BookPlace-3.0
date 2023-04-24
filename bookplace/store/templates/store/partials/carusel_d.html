@@ -1,0 +1,51 @@
+{% load static %}
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <a href="{% url 'recomandari' %}">
+        <img src="{% static '/images/3.jpg' %}" class="d-block" style="width: 100vw;height: 95vh;" alt="...">
+        <div class="carousel-caption d-none d-md-block bg-success rounded-4 opacity-75 mx-auto" style="width: 400px;">
+          <h1>Recomandarile<br>noastre</h1>
+        </div>
+      </a>
+    </div>
+    <div class="carousel-item">
+      <a href="{% url 'frontpage' %}">
+        <img src="{% static '/images/1.jpg' %}" class="d-block" style="width: 100vw;height: 95vh;" alt="...">
+        <div class="carousel-caption d-none d-md-block bg-success rounded-4 opacity-75 mx-auto" style="width: 400px;">
+          <h1>Carti<br>noi</h1>
+        </div>
+      </a>
+    </div>
+    <div class="carousel-item">
+      <a href="{% url 'nr_rev' %}">
+        <img src="{% static '/images/4.jpg' %}" class="d-block w-100" style="width: 100vw;height: 95vh;" alt="...">
+        <div class="carousel-caption d-none d-md-block bg-success rounded-4 opacity-75 mx-auto" style="width: 400px;">
+          <h1>Carti dupa numarul<br>de recenzi</h1>
+        </div>
+      </a>
+    </div>
+    <div class="carousel-item">
+      <a href="{% url 'nota' %}">
+        <img src="{% static '/images/5.jpg' %}" class="d-block w-100" style="width: 100vw;height: 95vh;" alt="...">
+        <div class="carousel-caption d-none d-md-block bg-success rounded-4 opacity-75 mx-auto" style="width: 400px;">
+          <h1>Cele mai apreciate<br>carti</h1>
+        </div>
+      </a>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon text-success" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

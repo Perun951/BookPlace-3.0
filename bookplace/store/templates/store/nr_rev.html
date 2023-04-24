@@ -1,0 +1,40 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+Nr. Review
+{% endblock %}
+
+{% block content %}
+<div class="bg-success rounded-bottom-5" style="width: 100vw;margin-top: 50px;height: 101vh;">
+  <div style="height: 100vh;width: 100vw;">
+    {% include 'store/partials/carusel_rv.html' %}
+  </div>
+</div>
+<div class="card mx-auto rounded-4 shadow p-3 mb-5 mt-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;">
+  <h1 class="card-title mx-auto">Carti dupa numarul de recenzi:</h1>
+  <div class="d-flex justify-content-center flex-row flex-wrap gap-4  " style="margin-top: 50px;margin-bottom: 5%;margin-left: 2%;margin-right: 2%;">
+    {% for product in nr_rev %}
+        <div style="margin-bottom: -50px;"> 
+            <div class="card shadow p-3 mb-5 bg-white rounded border-0 rounded-4" style="width: 400px; height: 600px;">
+                <a href="{% url 'product_detail' product.category.slug product.slug %}">
+                    <div class="image p-1">  
+                        <img class="rounded-4" id="corner" src="{{ product.get_thumbnail }}" width="350px" height="350px" alt="Image of {{ product.title }}">
+                    </div>
+                </a>
+                <div class="card-body " style="background-color: white;">
+                    <div class="product">    
+                        <a href="{% url 'product_detail'  product.category.slug product.slug %}" style="color: black; text-decoration: none;">                                                           
+                            <p class="card-text " align="center"><p><strong><h5>{{ product.title }}</h5></strong></p>
+                        </a>
+                        <p class="card-text text-success" align="right">{{product.author}}</p>
+                        <p align="right"><span class="text-success">{{ product.get_rating }}/10 [{{ product.reviews.count }}]</span></p> 
+                        <p class="card-text text-success" align="right">{{product.limba}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'core/base.html' %}
+{% block title %}
+{{ product.title }}
+{% endblock %}
+
+{% block content %}
+<div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
+    <div class="d-flex flex-wrap justify-content-around">
+            <div class="text">
+                <strong>
+                    <h1 style="margin-bottom: 40px;">{{ product.title }}</h1>
+                    <p>Autor: <span class="text-success" style="text-decoration: none;">{{product.author}}</span></p>
+                    <p>
+                    
+                        Incarcata de: <a href="{% url 'publisher_detail' product.user.id %}" class="text-success" style="text-decoration: none;">
+                        {% firstof product.user.get_full_name product.user.username %}
+                        </a>
+                    </p>
+                    <p>Editia: <span class="text-success">{{product.editie}}</span></p>
+                    <p>Editura: <span class="text-success">{{product.editura}}</span></p>
+                    <p>Categoria: <a class="text-success" href="{% url 'category_detail' product.category.slug %}" style="text-decoration: none;">{{product.category}}</a></p>
+                    <p>Limba: <span class="text-success">{{product.limba}}</span></p>
+                    <p>Adaugata pe: <span class="text-success">{{product.created_at|date:"d.m.Y"}}</span></p>
+                    <p>Nota: <span class="text-success">{{ product.get_rating }}/10 [{{ product.reviews.count }}]</span></p>
+                </strong>
+            </div>
+            <div class="d-flex flex-column mb-3">  
+                <img src="{% if product.image %} {{product.image.url}} {% else %} ../../../../../media/photo_2023-02-08_13-03-17.jpg {% endif %}" width="300vw" height="300vh" alt="Image of {{ product.title }}" class="rounded-4">
+                <a href="{{ product.pdf.url }}" download>
+                    <button class="text-bg-success rounded mx-auto border-0 shadow rounded-4" style="width: 100%;height: 100%; margin-top: 30px;">
+                        <i class="fa-sharp fa-solid fa-download fa-2xl"></i> <span style="font-size: x-large;">Descarca</span>
+                    </button>
+                </a>
+            </div>
+    </div>
+    <div class="mx-5">
+        {% if product.description %}
+        <h3 style="margin-top: 40px;">Descriere:</h3>
+        <br>
+        <p style="font-size: large;">
+        {{product.description}}
+        {% endif %}
+        </p>
+    </div>
+    <div class="mx-5" style="margin-top: 40px;">
+        <h3>Recenzii: <span class="text-success">{{ product.get_rating }}/10</span></h3>
+        {{product_detail.averagereview | stringformat:".2f"}}
+
+        {% if request.user.is_authenticated %}
+            <form method="post" action=".">
+                {% csrf_token %}
+
+                <div style="margin-top: 30px;">
+                    <label><strong>Nota</strong></label>
+                    <select name="rating" class="w-100 p-3 rounded-4 border border-success" style="margin-top: 10px;">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5" selected>5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div style="margin-top: 20px;">
+                    <label><strong>Recenzie</strong></label>
+                    <textarea name="content" class="w-100 p-3 rounded-4 border border-success " style="margin-top: 10px;"></textarea>
+                </div>
+                <div style="margin-top: 20px;">
+                    <button class="text-bg-success rounded mx-auto border-0 shadow rounded-4" style="width: 250px;height: 50px;">
+                        Posteaza comentariu
+                    </button>
+                </div>
+            </form>
+        {% endif %}
+        <div style="margin-top: 30px;">
+            {% for review in product.reviews.all %}
+            <div class="rounded-4 border border-success" style="margin-bottom: 10px; min-height: 150px;">
+                <div style="margin-top: 10px;"></div>
+                <span><strong class="px-2">Nota: </strong>{{review.rating}}/10</span><br> 
+                <strong class="px-2">Scris de: <a href="{% url 'publisher_detail' review.created_by.id %}" style="text-decoration: none; "><span class="text-success">{{review.created_by.get_full_name}}</span></a></strong> | <strong>{{review.created_at|date:"d.m.Y"}}</strong><br>
+                <hr class="text-success">
+                <strong class="px-2">Recenzie: <br></strong><div class="px-2" style="margin-bottom: 5px;">{{review.content}}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+<!-- {% firstof review.user.get_full_name review.user.username %} -->

@@ -1,0 +1,14 @@
+-DONE complete on every page thumbnails
+-DONE carusel linkuri pt pagini diferite: 
+    -DONE recomandari(if true->recom.html)
+    -cele mai apreciate
+    -most downloaded
+    -nr reviewuri
+-search filter
+-downloads for user(p7St)
+    -trb sa fac un model de usr(va fi util si la formular cel mai probabil)
+-sign/login in form
+-request admin form (pe pagina contul meu)
+
+
+

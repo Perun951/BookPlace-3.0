@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-center flex-row flex-wrap gap-4  " style="margin-top: 50px;margin-bottom: 5%;margin-left: 2%;margin-right: 2%;">
+    {% for product in products %}
+        <div style="margin-bottom: -50px;"> 
+            <div class="card shadow p-3 mb-5 bg-white rounded border-0 rounded-4" style="width: 400px; height: 600px;">
+                <a href="{% url 'product_detail' product.category.slug product.slug %}">
+                    <div class="image p-1">  
+                        <img class="rounded-4" id="corner" src="{{ product.get_thumbnail }}" width="350px" height="350px" alt="Image of {{ product.title }}">
+                    </div>
+                </a>
+                <div class="card-body " style="background-color: white;">
+                    <div class="product">    
+                        <a href="{% url 'product_detail'  product.category.slug product.slug %}" style="color: black; text-decoration: none;">                                                           
+                            <p class="card-text " align="center"><p><strong><h5>{{ product.title }}</h5></strong></p>
+                        </a>
+                        <p class="card-text text-success" align="right">{{product.author}}</p>
+                        <p align="right"><span class="text-success">{{ product.get_rating }}/10 [{{ product.reviews.count }}]</span></p> 
+                        <p class="card-text text-success" align="right">{{product.limba}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

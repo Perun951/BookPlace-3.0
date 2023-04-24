@@ -1,0 +1,5 @@
+{% for category in categories %}
+    <div class="d-flex justify-content-start flex-col">
+        <a href="{% url 'category_detail' category.slug %}" class="nav-link">{{ category.title }}</a>
+    </div>
+{% endfor %}

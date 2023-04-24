@@ -1,0 +1,46 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+Bun venit
+{% endblock %}
+
+{% block content %}
+<div class="bg-success rounded-bottom-5" style="width: 100vw;margin-top: 50px;height: 101vh;">
+  <div style="height: 100vh;width: 100vw;">
+    {% include 'store/partials/carusel_c_n.html' %}
+  </div>
+</div>
+<div class="card mx-auto rounded-4 shadow p-3 mb-5 mt-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;">
+  <h1 class="card-title mx-auto">Carti noi:</h1>
+  {% include 'store/partials/products.html' %}
+  <div class="mx-auto">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        {% if products_list.has_previous %}
+        <li class="page-item">
+            <a class="page-link text-success" href="?page1" style="text-decoration: none;">&laquo; </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link text-success" href="?page{{ products_list.previous_page_number }}" style="text-decoration: none;">&#8249;</a>
+        </li>
+        {% endif %}
+        {% for i in nums %}
+          <li class="page-item">
+              <a class="page-link text-success" href="?page={{ forloop.counter }}">{{ forloop.counter }}</a>
+          </li>
+        {% endfor %}
+
+        {% if products_list.has_next %}
+        <li class="page-item">
+          <a class="page-link text-success" href="?page={{ products_list.next_page_number }}" style="text-decoration: none;">&#8250;</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link text-success" href="?page={{ products_list.paginator.num_pages }}" style="text-decoration: none;">&raquo;</a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</div>
+
+{% endblock %}

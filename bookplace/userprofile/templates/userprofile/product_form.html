@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+{{title}}
+{% endblock %}
+
+{% block content %}
+<div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
+    <h5 class="card-title mx-auto" style="margin-top: 50px;"><font size="6">{{ title }}</font></h5>
+    <div class="d-flex flex-wrap gap-3" style="margin-bottom: 5%;margin-left: 2%;margin-right: 2%;">
+        <form method="post" action="." enctype="multipart/form-data" class="p-2" style="width: 100%;">
+            {% csrf_token %}
+
+            {{form.as_p}}
+
+            <button class="btn btn-success" style="width: 100px;height: 37px;">
+                Adauga
+            </button>
+
+        </form>
+        {% if product %}
+        <div class="d-flex align-items-center justify-content-start text-bg-danger rounded" style="width: 100px;height: 37px; margin-left: 7px;">
+            <a href="{% url 'delete_product' product.id %}" class="mx-auto" style="text-decoration: none;color: white;">Sterge</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
