@@ -9,6 +9,6 @@
     -trb sa fac un model de usr(va fi util si la formular cel mai probabil)
 -sign/login in form
 -request admin form (pe pagina contul meu)
-
+-github
 
 
