@@ -13,7 +13,7 @@ Nr. Review
 <div class="card mx-auto rounded-4 shadow p-3 mb-5 mt-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;">
   <h1 class="card-title mx-auto">Carti dupa numarul de recenzi:</h1>
   <div class="d-flex justify-content-center flex-row flex-wrap gap-4  " style="margin-top: 50px;margin-bottom: 5%;margin-left: 2%;margin-right: 2%;">
-    {% for product in nr_rev %}
+    {% for product in products %}
         <div style="margin-bottom: -50px;"> 
             <div class="card shadow p-3 mb-5 bg-white rounded border-0 rounded-4" style="width: 400px; height: 600px;">
                 <a href="{% url 'product_detail' product.category.slug product.slug %}">

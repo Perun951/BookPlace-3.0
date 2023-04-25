@@ -35,7 +35,6 @@ def my_store(request):
     page = request.GET.get('page')
     products_list = p.get_page(page)
     nums = "a" * products_list.paginator.num_pages
-    descarcari = Desc.objects
 
     return render(request, 'userprofile/my_store.html',{
         'products': products,

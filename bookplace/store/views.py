@@ -14,7 +14,9 @@ def recomandari(request):
 
 def nr_rev(request):
     products = Product.objects.annotate(num_reviews=Count('reviews')).order_by('-num_reviews')
-    return render(request, 'product_list.html', {'products': products})
+    return render(request, 'store/nr_rev.html', {
+        'products': products,
+        })
 
 def nr_down(request):
     products = Product.objects.filter(status=Product.ACTIVE)
