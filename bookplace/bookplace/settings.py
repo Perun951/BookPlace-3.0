@@ -39,6 +39,8 @@ LOGOUT_REDIRECT_URL = 'frontpage'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'star_ratings',
+    'django_filters',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

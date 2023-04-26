@@ -1,7 +1,7 @@
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
-from django.db.models import Count
+from django.db.models import Count, Avg
 
 from .models import Product, Category, Review
 
@@ -26,7 +26,7 @@ def nr_down(request):
     })
 
 def nota(request):
-    products = Product.objects.filter(status=Product.ACTIVE)
+    products = Product.objects.annotate(avg_reviews=Avg('reviews__rating')).order_by('-avg_reviews')
 
     return render(request, 'store/nota.html', {
         'products': products,

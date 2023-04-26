@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 django = "*"
 pillow = "*"
+django-star-ratings = "*"
+django-filter = "*"
 
 [dev-packages]
 

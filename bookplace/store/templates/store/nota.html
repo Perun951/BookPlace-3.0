@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
 
 {% block title %}
-Recomandari
+Nota carte
 {% endblock %}
 
 {% block content %}
@@ -11,47 +11,30 @@ Recomandari
   </div>
 </div>
 <div class="card mx-auto rounded-4 shadow p-3 mb-5 mt-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;">
-    <h1 class="card-title mx-auto">Cele mai apreciate carti:</h1>
-    <div class="d-flex justify-content-center flex-row flex-wrap gap-4  " style="margin-top: 50px;margin-bottom: 5%;margin-left: 2%;margin-right: 2%;">
-      {% if request.products.product.recomanda %}
-          {% for product in products %}
-              <div style="margin-bottom: -50px;" align="center"> 
-                  <div class="card shadow p-3 mb-5 bg-white border-0 rounded-4" style="width: 400px; height: 700px;">
-                      <div class="image p-1"> 
-                          <a href="{% url 'product_detail'  product.category.slug product.slug %}"> 
-                              <img class="rounded-4" id="corner" src="{{ product.get_thumbnail }}" width="350px" height="350px" alt="Image of {{ product.title }}">
-                          </a>
-                      </div>
-                      <div class="card-body " style="background-color: white; min-height: 300px;">
-                          <div class=" product p-3">    
-                              <a href="{% url 'product_detail'  product.category.slug product.slug %}" style="color: black; text-decoration: none;">
-                                  <div class="card-text" align="center" style="min-height: 90px;">
-                                      <p><strong><h5>{{ product.title }}</h5></strong></p>  
-                                  </div>
-                              </a>
-                              <div class="d-flex align-self-end">
-                                  <div class="d-flex me-auto justify-content-start">
-                                      <a href="{% url 'product_detail'  product.category.slug product.slug %}" style="color: black; text-decoration: none;max-width: 150px;max-height: 100px;">
-                                          <p class="card-text text-success" align="left">{{product.author}}</p>
-                                          <p align="left"><span class="text-success">{{ product.get_rating }}/10 [{{ product.reviews.count }}]</span></p> 
-                                          <p class="card-text text-success" align="left">{{product.limba}}</p>
-                                      </a>
-                                  </div>
-                                  <div class="d-flex justify-content-end align-items-center ">
-                                      <a href="{{ product.pdf.url }}" download style="text-decoration: none;">
-                                          <button class="btn d-flex bg-success align-items-center justify-content-center text-light border-o rounded-4 shadow p-2" style="width: 60px;height: 60px;">
-                                              <i class="fa-sharp fa-solid fa-download fa-2xl"></i>
-                                          </button>
-                                      </a>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          {% endfor %}
-      {% endif %}
-  </div>
-  </div>
-  
-  {% endblock %}
+  <h1 class="card-title mx-auto">Cele mai apreciate carti:</h1>
+  <div class="d-flex justify-content-center flex-row flex-wrap gap-4  " style="margin-top: 50px;margin-bottom: 5%;margin-left: 2%;margin-right: 2%;">
+    {% for product in products %}
+        <div style="margin-bottom: -50px;"> 
+            <div class="card shadow p-3 mb-5 bg-white rounded border-0 rounded-4" style="width: 400px; height: 600px;">
+                <a href="{% url 'product_detail' product.category.slug product.slug %}">
+                    <div class="image p-1">  
+                        <img class="rounded-4" id="corner" src="{{ product.get_thumbnail }}" width="350px" height="350px" alt="Image of {{ product.title }}">
+                    </div>
+                </a>
+                <div class="card-body " style="background-color: white;">
+                    <div class="product">    
+                        <a href="{% url 'product_detail'  product.category.slug product.slug %}" style="color: black; text-decoration: none;">                                                           
+                            <p class="card-text " align="center"><p><strong><h5>{{ product.title }}</h5></strong></p>
+                        </a>
+                        <p class="card-text text-success" align="right">{{product.author}}</p>
+                        <p align="right"><span class="text-success">{{ product.get_rating }}/10 [{{ product.reviews.count }}]</span></p> 
+                        <p class="card-text text-success" align="right">{{product.limba}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

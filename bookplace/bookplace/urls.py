@@ -13,5 +13,6 @@ urlpatterns = [
     path('', include('userprofile.urls')),
     path('', include('store.urls')),
     path('',frontpage,name='frontpage'),
+    path('ratings/', include('star_ratings.urls', namespace='ratings')),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

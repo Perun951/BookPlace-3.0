@@ -1,4 +1,5 @@
 {% extends 'core/base.html' %}
+{% load ratings %}
 {% block title %}
 {{ product.title }}
 {% endblock %}
@@ -22,10 +23,11 @@
                     <p>Limba: <span class="text-success">{{product.limba}}</span></p>
                     <p>Adaugata pe: <span class="text-success">{{product.created_at|date:"d.m.Y"}}</span></p>
                     <p>Nota: <span class="text-success">{{ product.get_rating }}/10 [{{ product.reviews.count }}]</span></p>
+                    <!-- {% ratings product %} -->
                 </strong>
             </div>
             <div class="d-flex flex-column mb-3">  
-                <img src="{% if product.image %} {{product.image.url}} {% else %} ../../../../../media/photo_2023-02-08_13-03-17.jpg {% endif %}" width="300vw" height="300vh" alt="Image of {{ product.title }}" class="rounded-4">
+                <img src="{% if product.image %} {{product.image.url}} {% else %} ../../../../../static/images/photo_2023-02-08_13-03-17.jpg {% endif %}" width="300vw" height="300vh" alt="Image of {{ product.title }}" class="rounded-4">
                 <a href="{{ product.pdf.url }}" download>
                     <button class="text-bg-success rounded mx-auto border-0 shadow rounded-4" style="width: 100%;height: 100%; margin-top: 30px;">
                         <i class="fa-sharp fa-solid fa-download fa-2xl"></i> <span style="font-size: x-large;">Descarca</span>
