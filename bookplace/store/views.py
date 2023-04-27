@@ -19,7 +19,7 @@ def nr_rev(request):
         })
 
 def nr_down(request):
-    products = Product.objects.filter(status=Product.ACTIVE)
+    products = Product.objects.annotate(downs=Count('downloads')).order_by('-downs')
 
     return render(request, 'store/nr_down.html', {
         'products': products,

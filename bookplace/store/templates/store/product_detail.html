@@ -23,7 +23,7 @@
                     <p>Limba: <span class="text-success">{{product.limba}}</span></p>
                     <p>Adaugata pe: <span class="text-success">{{product.created_at|date:"d.m.Y"}}</span></p>
                     <p>Nota: <span class="text-success">{{ product.get_rating }}/10 [{{ product.reviews.count }}]</span></p>
-                    <!-- {% ratings product %} -->
+                    <p>Descarcari: <span class="text-success">{{product.downloads}}</span></p>
                 </strong>
             </div>
             <div class="d-flex flex-column mb-3">  

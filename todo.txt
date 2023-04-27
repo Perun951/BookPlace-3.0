@@ -4,7 +4,7 @@
     -DONE cele mai apreciate
     -DONE nr reviewuri
     -most downloaded
--frontpage buttons under carusel that show when you enter the site(despre noi + login / singup + cont/magazin)
+-Nu ai cont/Ai deja cont
 -django-filter ratings
 -search filter
 -authentificare google
@@ -13,5 +13,5 @@
 -sign/login in form
 -request admin form (pe pagina contul meu)
 -github
-
+-favourites
 
