@@ -45,7 +45,7 @@ class Product(models.Model):
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, default=ACTIVE)
     recomanda = models.BooleanField(default=False)
     downloads = models.IntegerField(default=0)
-
+    
     class Meta:
         ordering = ('-created_at',)
 

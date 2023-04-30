@@ -8,8 +8,8 @@ Conecteaza-te
 
 <div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
     <h5 class="card-title mx-auto" style="margin-top: 50px;"><font size="6">Conecteaza-te</font></h5>
-    <div class="d-flex justify-content-center flex-wrap gap-3 align-items-center " style="margin-bottom: 5%;margin-left: 2%;margin-right: 2%;">
-        <form method="post" action=".">
+    <div class="d-flex justify-content-center" style="margin-bottom: 5%;margin-left: 2%;margin-right: 2%;">
+        <form method="post" action="."  style="margin-top: 2vh;">
             {% csrf_token %}
     
             {{ form.as_p }}
@@ -17,6 +17,10 @@ Conecteaza-te
             <button class="bg-success py-2 px-8 rounded-4 text-light border-0" style="margin-left: 5vw;">Conecteaza-te</button>
         </form>
     </div>
-    <div class="d-flex justify-content-center flex-wrap" style="font-size: larger;">Nu ai cont?&nbsp;&nbsp;<a href="{% url 'signup' %}" style="text-decoration: none; width: 200px;height: 40px;" class="text-success">Inregistrare</a></div>
+    <div class="mx-auto" style="font-size: larger;">
+        <p>Nu ai cont?&nbsp;&nbsp;
+        <a href="{% url 'signup' %}" style="text-decoration: none; width: 200px;height: 40px;" class="text-success">Inregistreaza-te</a>
+        </p>
+    </div>
 </div>
 {% endblock %}

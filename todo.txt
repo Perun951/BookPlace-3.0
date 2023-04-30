@@ -3,15 +3,13 @@
     -DONE recomandari(if true->recom.html)
     -DONE cele mai apreciate
     -DONE nr reviewuri
-    -most downloaded
+    -ABANDON most downloaded
 -Nu ai cont/Ai deja cont
--django-filter ratings
 -search filter
 -authentificare google
 -downloads for user(p7St)
     -trb sa fac un model de usr(va fi util si la formular cel mai probabil)
 -sign/login in form
 -request admin form (pe pagina contul meu)
--github
 -favourites
 
