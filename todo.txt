@@ -1,15 +1,13 @@
--DONE complete on every page thumbnails
+-sign/login in form
+-favourites(idee:cart code with stein) 
 -DONE carusel linkuri pt pagini diferite: 
     -DONE recomandari(if true->recom.html)
     -DONE cele mai apreciate
     -DONE nr reviewuri
     -ABANDON most downloaded
--Nu ai cont/Ai deja cont
 -search filter
 -authentificare google
 -downloads for user(p7St)
     -trb sa fac un model de usr(va fi util si la formular cel mai probabil)
--sign/login in form
--request admin form (pe pagina contul meu)
--favourites
-
+-contact form
+-new front page -multiple carousels with 9 products from every category(emag)
