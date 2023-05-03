@@ -9,12 +9,13 @@
                 </a>
                 <div class="card-body " style="background-color: white;">
                     <div class="product">    
-                        <a href="{% url 'product_detail'  product.category.slug product.slug %}" style="color: black; text-decoration: none;">                                                           
-                            <p class="card-text " align="center"><p><strong><h5>{{ product.title }}</h5></strong></p>
-                        </a>
-                        <p class="card-text text-success" align="right">{{product.author}}</p>
-                        <p align="right"><span class="text-success">{{ product.get_rating }}/10 [{{ product.reviews.count }}]</span></p> 
-                        <p class="card-text text-success" align="right">{{product.limba}}</p>
+                                    <a href="{% url 'product_detail'  product.category.slug product.slug %}" style="color: black; text-decoration: none;max-width: 230px;max-height: 100px;">
+                                        <p class="card-text text-success" align="left"><i class="fa-solid fa-user"></i>&nbsp;{{product.author}}</p>
+                                        <p align="left"><span class="text-success"><i class="fa-solid fa-star"></i>&nbsp;{{ product.get_rating }}/10 [{{ product.reviews.count }}]</span></p> 
+                                        <p class="card-text text-success" align="left"><i class="fa-solid fa-globe"></i>&nbsp;{{product.limba}}</p>
+                                        <p class="card-text text-success" align="left"><i class="fa-solid fa-at"></i>&nbsp;{% firstof product.user.get_full_name product.user.username %}</p>
+                                        <!-- <p align="left" class="card-text text-success">{{product.downloads}}&nbsp;<i class="fa-sharp fa-solid fa-download"></i></p> -->
+                                    </a>
                     </div>
                 </div>
             </div>

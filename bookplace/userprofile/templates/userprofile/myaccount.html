@@ -7,10 +7,10 @@ Contul meu
 {% block content %}
 <div class="card container mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
     <div class="row align-items-start">
-        <span class="col card-title text-success" style="margin-top: 50px;"><font size="6">{{ user }}</font></span>
+        <span class="col card-title text-success" style="margin-top: 50px;"><font size="6"><b>{{ user.username }}<br>{{user.get_full_name}}</b></font></span>
         <div class="col d-flex justify-content-end gap-3" style="margin-bottom: 5%;margin-left: 2%;margin-right: 2%;margin-top: 50px;">
-            <button type="button" class="btn btn-danger" style="align-self: flex-end;">
-                <a href="{% url 'logout' %}" style="text-decoration: none; color: white;">Deconectare</a>
+            <button type="button" class="btn btn-danger shadow rounded-4" style="align-self: flex-end;height: 60px;width: 170px;font-size: larger;">
+                <a href="{% url 'logout' %}" style="text-decoration: none; color: white;"><b>Deconectare</b></a>
             </button>
         </div>
     </div>

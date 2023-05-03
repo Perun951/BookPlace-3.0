@@ -10,19 +10,19 @@
             <div class="text">
                 <strong>
                     <h1 style="margin-bottom: 40px;">{{ product.title }}</h1>
-                    <p>Autor: <span class="text-success" style="text-decoration: none;">{{product.author}}</span></p>
+                    <p><i class="fa-solid fa-user"></i>&nbsp;Autor: <span class="text-success" style="text-decoration: none;">{{product.author}}</span></p>
                     <p>
                     
-                        Incarcata de: <a href="{% url 'publisher_detail' product.user.id %}" class="text-success" style="text-decoration: none;">
+                        <i class="fa-solid fa-at"></i>&nbsp;Incarcata de: <a href="{% url 'publisher_detail' product.user.id %}" class="text-success" style="text-decoration: none;">
                         {% firstof product.user.get_full_name product.user.username %}
                         </a>
                     </p>
-                    <p>Editia: <span class="text-success">{{product.editie}}</span></p>
-                    <p>Editura: <span class="text-success">{{product.editura}}</span></p>
-                    <p>Categoria: <a class="text-success" href="{% url 'category_detail' product.category.slug %}" style="text-decoration: none;">{{product.category}}</a></p>
-                    <p>Limba: <span class="text-success">{{product.limba}}</span></p>
-                    <p>Adaugata pe: <span class="text-success">{{product.created_at|date:"d.m.Y"}}</span></p>
-                    <p>Nota: <span class="text-success">{{ product.get_rating }}/10 [{{ product.reviews.count }}]</span></p>
+                    <p><i class="fa-solid fa-pen"></i>&nbsp;Editia: <span class="text-success">{{product.editie}}</span></p>
+                    <p><i class="fa-sharp fa-solid fa-newspaper"></i>&nbsp;Editura: <span class="text-success">{{product.editura}}</span></p>
+                    <p><i class="fa-solid fa-scroll"></i>&nbsp;Categoria: <a class="text-success" href="{% url 'category_detail' product.category.slug %}" style="text-decoration: none;">{{product.category}}</a></p>
+                    <p><i class="fa-solid fa-globe"></i>&nbsp;Limba: <span class="text-success">{{product.limba}}</span></p>
+                    <p><i class="fa-solid fa-calendar-days"></i>&nbsp;Adaugata pe: <span class="text-success">{{product.created_at|date:"d.m.Y"}}</span></p>
+                    <p><i class="fa-solid fa-star"></i>&nbsp;Nota: <span class="text-success">{{ product.get_rating }}/10 [{{ product.reviews.count }}]</span></p>
                     <!-- <p>Descarcari: <span class="text-success">{{product.downloads}}</span></p> -->
                 </strong>
             </div>
@@ -37,7 +37,7 @@
     </div>
     <div class="mx-5">
         {% if product.description %}
-        <h3 style="margin-top: 40px;">Descriere:</h3>
+        <h3 style="margin-top: 40px;"><i class="fa-sharp fa-solid fa-paper-plane"></i>&nbsp;Descriere:</h3>
         <br>
         <p style="font-size: large;">
         {{product.description}}
@@ -45,7 +45,7 @@
         </p>
     </div>
     <div class="mx-5" style="margin-top: 40px;">
-        <h3>Recenzii: <span class="text-success">{{ product.get_rating }}/10</span></h3>
+        <h3><i class="fa-solid fa-star"></i>&nbsp;Recenzii: <span class="text-success">{{ product.get_rating }}/10</span></h3>
         {{product_detail.averagereview | stringformat:".2f"}}
 
         {% if request.user.is_authenticated %}

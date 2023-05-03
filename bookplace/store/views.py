@@ -5,6 +5,13 @@ from django.db.models import Count, Avg
 
 from .models import Product, Category, Review
 
+def test(request):
+    products = Product.objects.annotate(avg_reviews=Avg('reviews__rating')).order_by('-avg_reviews')
+
+    return render(request, 'store/test.html', {
+        'products': products,
+    })
+
 def recomandari(request):
     products = Product.objects.filter(status=Product.ACTIVE)
 
