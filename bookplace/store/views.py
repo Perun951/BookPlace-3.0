@@ -25,13 +25,6 @@ def nr_rev(request):
         'products': products,
         })
 
-def nr_down(request):
-    products = Product.objects.annotate(downs=Count('downloads')).order_by('-downs')
-
-    return render(request, 'store/nr_down.html', {
-        'products': products,
-    })
-
 def nota(request):
     products = Product.objects.annotate(avg_reviews=Avg('reviews__rating')).order_by('-avg_reviews')
 
