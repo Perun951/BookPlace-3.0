@@ -7,7 +7,7 @@ Magazinul meu
 {% block content %}
 
 <div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
-    <h5 class="card-title mx-auto" style="margin-top: 50px;"><font size="16">Magazinul meu</font></h5>
+    <h5 class="card-title mx-auto" style="margin-top: 50px;"><font size="16">Cartile mele</font></h5>
     <a href="{% url 'add_product' %}" class="text-light mx-auto" style="text-decoration: none;">
         <button class="btn btn-success mx-auto" type="button" style="width: 150px; height: 100%; margin-top: 8px;">
             <h5>Adauga carte</h5>
@@ -26,25 +26,31 @@ Magazinul meu
             <div class="d-flex justify-content-center flex-row flex-wrap gap-4  " style="margin-bottom: 5%;margin-left: 2%;margin-right: 2%;">
                 {% for product in products_list %}
                 <div  style="margin-top: -50px;" align="center"> 
-                    <div class="card shadow p-3 mb-5 bg-white rounded border-0 rounded-4" style="max-width: 400px ;min-width: 400px; min-height: 700px;max-height: 700px;" >
-                        <a href="{% url 'edit_product' product.id %}">
-                            <div class="image p-1">  
-                                <img class="rounded-4" id="corner" src="{{ product.get_thumbnail }}" width="350px" height="350px" alt="Image of {{ product.title }}">
+                    <div class="card shadow mb-5 bg-white rounded border-0 rounded-4" style="max-width: 400px ;min-width: 400px; min-height: 700px;max-height: 700px;" >
+                        <div class="p-3">
+                            <a href="{% url 'edit_product' product.id %}">
+                                <div class="image p-1">  
+                                    <img class="rounded-4" id="corner" src="{{ product.get_thumbnail }}" width="350px" height="350px" alt="Image of {{ product.title }}">
+                                </div>
+                            </a>
+                            <div class="card-text" align="center" style="min-height: 60px;">
+                                <p><strong><h5>{{ product.title }}</h5></strong></p>  
                             </div>
-                        </a>
-                        <div class="card-body " style="background-color: white; margin-top: 30px;">  
-                                <a href="{% url 'product_detail'  product.category.slug product.slug %}" style="color: black; text-decoration: none;max-width: 230px;max-height: 100px;">
-                                        <p class="card-text text-success" align="left"><i class="fa-solid fa-user"></i>&nbsp;{{product.author}}</p>
-                                        <p align="left"><span class="text-success"><i class="fa-solid fa-star"></i>&nbsp;{{ product.get_rating }}/10 [{{ product.reviews.count }}]</span></p> 
-                                        <p class="card-text text-success" align="left"><i class="fa-solid fa-globe"></i>&nbsp;{{product.limba}}</p>
-                                        <p class="card-text text-success" align="left"><i class="fa-solid fa-at"></i>&nbsp;{% firstof product.user.get_full_name product.user.username %}</p>
-                                        <!-- <p align="left" class="card-text text-success">{{product.downloads}}&nbsp;<i class="fa-sharp fa-solid fa-download"></i></p> -->
-                                </a>
+                            <div class="card-body " style="background-color: white;">  
+                                    <a href="{% url 'product_detail'  product.category.slug product.slug %}" style="color: black; text-decoration: none;max-width: 230px;max-height: 100px;">
+                                            <p class="card-text text-success" align="left"><i class="fa-solid fa-user"></i>&nbsp;{{product.author}}</p>
+                                            <p align="left"><span class="text-success"><i class="fa-solid fa-star"></i>&nbsp;{{ product.get_rating }}/10 [{{ product.reviews.count }}]</span></p> 
+                                            <p class="card-text text-success" align="left"><i class="fa-solid fa-globe"></i>&nbsp;{{product.limba}}</p>
+                                            <p class="card-text text-success" align="left"><i class="fa-solid fa-at"></i>&nbsp;{% firstof product.user.get_full_name product.user.username %}</p>
+                                            <!-- <p align="left" class="card-text text-success">{{product.downloads}}&nbsp;<i class="fa-sharp fa-solid fa-download"></i></p> -->
+                                    </a>
+                            </div>
                         </div>
                         <div class="d-flex justify-content-center">
-                        <div class="card-footer rounded-bottom-4 " style="width: 400px;">
-                            <p><strong>Status: {{ product.get_status_display }}</strong></p>
-                        </div></div>
+                            <div class="card-footer rounded-bottom-4 " style="width: 400px;">
+                                <p><strong>Status: {{ product.get_status_display }}</strong></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}

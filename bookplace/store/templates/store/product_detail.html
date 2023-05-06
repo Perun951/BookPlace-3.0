@@ -82,8 +82,8 @@
             {% for review in product.reviews.all %}
             <div class="rounded-4 border border-success" style="margin-bottom: 10px; min-height: 150px;">
                 <div style="margin-top: 10px;"></div>
-                <span><strong class="px-2">Nota: </strong>{{review.rating}}/10</span><br> 
-                <strong class="px-2">Scris de: <a href="{% url 'publisher_detail' review.created_by.id %}" style="text-decoration: none; "><span class="text-success">{{review.created_by.get_full_name}}</span></a></strong> | <strong>{{review.created_at|date:"d.m.Y"}}</strong><br>
+                <span><strong class="px-2">Nota: </strong><span class="text-success"><b>{{review.rating}}/10&nbsp;<i class="fa-solid fa-star"></i></b></span></span><br> 
+                <strong class="px-2">Scris de: <a href="{% url 'publisher_detail' review.created_by.id %}" style="text-decoration: none; "><span class="text-success">{%firstof review.created_by.get_full_name review.created_by.username%}</span></a></strong> | <strong>{{review.created_at|date:"d.m.Y"}}</strong><br>
                 <hr class="text-success">
                 <strong class="px-2">Recenzie: <br></strong><div class="px-2" style="margin-bottom: 5px;">{{review.content}}</div>
             </div>

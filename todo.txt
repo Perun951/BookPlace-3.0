@@ -1,4 +1,3 @@
--repara review fara nume user
 -sign/login in form
 -favourites(idee:cart code with stein) + adauga pe pagina contul meu
 -authentificare google
