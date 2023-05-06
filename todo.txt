@@ -1,7 +1,7 @@
 -sign/login in form
+-contact form(+verificare admin(ep6))
 -favourites(idee:cart code with stein) + adauga pe pagina contul meu
 -authentificare google
--contact form(+verificare admin(ep6))
 -new front page -multiple carousels with 9 products from every category(emag)
 -search filter
 -sterg tot ce inseamna url, views si file pt test

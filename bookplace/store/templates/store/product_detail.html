@@ -26,15 +26,23 @@
                     <!-- <p>Descarcari: <span class="text-success">{{product.downloads}}</span></p> -->
                 </strong>
             </div>
-            <div class="d-flex flex-column mb-3">  
+            <div class="d-flex flex-column mb-3" style="height: 400px;">  
                 <img src="{% if product.image %} {{product.image.url}} {% else %} ../../../../../static/images/photo_2023-02-08_13-03-17.jpg {% endif %}" width="300vw" height="300vh" alt="Image of {{ product.title }}" class="rounded-4">
-                <a href="{{ product.pdf.url }}" download>
-                    <button class="text-bg-success rounded mx-auto border-0 shadow rounded-4" style="width: 100%;height: 100%; margin-top: 30px;">
-                        <i class="fa-sharp fa-solid fa-download fa-2xl"></i> <span style="font-size: x-large;">Descarca</span>
-                    </button>
-                </a>
+                <div class="row" style="margin-top: 30px; height: 50px">
+                    <a href="{{ product.pdf.url }}" download class="col">
+                        <button class="text-bg-success rounded mx-auto border-0 shadow rounded-4" style="width: 100%;height: 100%;">
+                            <i class="fa-sharp fa-solid fa-download fa-2xl"></i> <span style="font-size: x-large;">Descarca</span>
+                        </button>
+                    </a>
+                    <a href="#" class="col-3">
+                        <button class="text-bg-success rounded mx-auto border-0 shadow rounded-4" style="width: 100%;height: 100%;">
+                            <i class="fa-regular fa-heart fa-2xl"></i>
+                        </button>
+                    </a>
+                </div>
             </div>
     </div>
+    <hr>
     <div class="mx-5">
         {% if product.description %}
         <h3 style="margin-top: 40px;"><i class="fa-sharp fa-solid fa-paper-plane"></i>&nbsp;Descriere:</h3>
@@ -44,6 +52,7 @@
         {% endif %}
         </p>
     </div>
+    <hr>
     <div class="mx-5" style="margin-top: 40px;">
         <h3><i class="fa-solid fa-star"></i>&nbsp;Recenzii: <span class="text-success">{{ product.get_rating }}/10</span></h3>
         {{product_detail.averagereview | stringformat:".2f"}}

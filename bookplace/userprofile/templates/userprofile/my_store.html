@@ -8,11 +8,19 @@ Magazinul meu
 
 <div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
     <h5 class="card-title mx-auto" style="margin-top: 50px;"><font size="16">Cartile mele</font></h5>
-    <a href="{% url 'add_product' %}" class="text-light mx-auto" style="text-decoration: none;">
-        <button class="btn btn-success mx-auto" type="button" style="width: 150px; height: 100%; margin-top: 8px;">
-            <h5>Adauga carte</h5>
-        </button>
-    </a>
+    <div class="row justify-content-center">
+        <a href="{% url 'add_product' %}" class="col-1 text-light d-flex justify-content-end" style="text-decoration: none;margin-bottom: 30px;">
+            <button class="btn btn-success mx-auto shadow rounded-4" type="button" style="width: 150px; height: 100%; margin-top: 8px;">
+                <h5 class="d-flex align-items-center">Adauga carte</h5>
+            </button>
+        </a>
+        <a href="{% url 'myaccount' %}" class="col-1 text-light d-flex justify-content-start" style="text-decoration: none;margin-bottom: 30px;">
+            <button class="btn btn-success mx-auto shadow rounded-4" type="button" style="width: 150px; height: 100%; margin-top: 8px;">
+                <h5 class="d-flex align-items-center">Carti favorite</h5>
+            </button>
+        </a>
+    </div>
+    <hr>
     {% if messages %}
         {% for message in messages %}
             <div class="alert alert-success mx-auto" role="alert" style="height: 10%; width: 300px;margin-top: 14px;">
@@ -20,9 +28,8 @@ Magazinul meu
             </div>
         {% endfor %}
     {% endif %}
-    <p class="card-title mx-auto" style="margin-top: 60px;margin-bottom: 60px;"><font size="6">Cartile mele:</font></p>
     {% if products %}
-        <div class="d-flex  align-items-center">
+        <div class="d-flex  align-items-center" style="margin-top: 90px;">
             <div class="d-flex justify-content-center flex-row flex-wrap gap-4  " style="margin-bottom: 5%;margin-left: 2%;margin-right: 2%;">
                 {% for product in products_list %}
                 <div  style="margin-top: -50px;" align="center"> 
