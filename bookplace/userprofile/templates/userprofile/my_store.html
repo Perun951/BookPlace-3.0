@@ -9,14 +9,14 @@ Magazinul meu
 <div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
     <h5 class="card-title mx-auto" style="margin-top: 50px;"><font size="16">Cartile mele</font></h5>
     <div class="row justify-content-center">
-        <a href="{% url 'add_product' %}" class="col-1 text-light d-flex justify-content-end" style="text-decoration: none;margin-bottom: 30px;">
+        <a href="{% url 'add_product' %}" class="col-2 text-light d-flex justify-content-end" style="text-decoration: none;margin-bottom: 30px;">
             <button class="btn btn-success mx-auto shadow rounded-4" type="button" style="width: 150px; height: 100%; margin-top: 8px;">
-                <h5 class="d-flex align-items-center">Adauga carte</h5>
+                <h5 class="d-flex align-items-center"><i class="fa-solid fa-plus"></i>&nbsp;Adauga carte</h5>
             </button>
         </a>
-        <a href="{% url 'myaccount' %}" class="col-1 text-light d-flex justify-content-start" style="text-decoration: none;margin-bottom: 30px;">
+        <a href="{% url 'myaccount' %}" class="col-2 text-light d-flex justify-content-start" style="text-decoration: none;margin-bottom: 30px;">
             <button class="btn btn-success mx-auto shadow rounded-4" type="button" style="width: 150px; height: 100%; margin-top: 8px;">
-                <h5 class="d-flex align-items-center">Carti favorite</h5>
+                <h5 class="d-flex align-items-center"><i class="fa-regular fa-heart"></i>&nbsp;Carti favorite</h5>
             </button>
         </a>
     </div>
@@ -40,9 +40,11 @@ Magazinul meu
                                     <img class="rounded-4" id="corner" src="{{ product.get_thumbnail }}" width="350px" height="350px" alt="Image of {{ product.title }}">
                                 </div>
                             </a>
-                            <div class="card-text" align="center" style="min-height: 60px;">
-                                <p><strong><h5>{{ product.title }}</h5></strong></p>  
-                            </div>
+                            <a href="{% url 'product_detail'  product.category.slug product.slug %}" class="text-dark" style="text-decoration:none">
+                                <div class="card-text" align="center" style="min-height: 60px;">
+                                    <p><strong><h5>{{ product.title }}</h5></strong></p>
+                                </div>
+                            </a>
                             <div class="card-body " style="background-color: white;">  
                                     <a href="{% url 'product_detail'  product.category.slug product.slug %}" style="color: black; text-decoration: none;max-width: 230px;max-height: 100px;">
                                             <p class="card-text text-success" align="left"><i class="fa-solid fa-user"></i>&nbsp;{{product.author}}</p>

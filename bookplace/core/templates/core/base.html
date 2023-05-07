@@ -51,7 +51,7 @@
                 </div> 
                 <hr>
                 <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><b>Sectiuni:</b></h5>
+                  <h5 class="offcanvas-title text-success mx-auto"><b><i class="fa-solid fa-filter"></i>&nbsp;Sectiuni:</b></h5>
                 </div>             
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -62,14 +62,24 @@
                           </div>
                         </ul>
                       </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mt-1" style="font-size: larger;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          <h5><b>Despre noi</b></h5>
+                      <li class="nav-item dropdown-center">
+                        <a class="nav-link mt-1" style="font-size: larger;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <h5 class="d-flex justify-content-center text-success"><b><i class="fa-solid fa-file"></i>&nbsp;Despre noi&nbsp;<i class="fa-solid fa-sort-down"></i></b></h5>
                         </a>
-                        <ul class="dropdown-menu  text-bg-success">
-                          <li><a class="dropdown-item btn" href="{% url 'contact' %}" style="color: white; font-size: larger;">Contact</a></li>
+                        <ul class="dropdown-menu border-0 bg-light">
+                          <!-- <li><a class="dropdown-item btn" href="{% url 'contact' %}" style="color: white; font-size: larger;">Contact</a></li>
                           <li><hr class="my-3"></li>
-                          <li><a class="dropdown-item btn" href="{% url 'viziune' %}" style="color: white; font-size: larger;">Viziune</a></li>
+                          <li><a class="dropdown-item btn" href="{% url 'viziune' %}" style="color: white; font-size: larger;">Viziune</a></li> -->
+                          <li class="d-flex justify-content-center">
+                            <a class="dropdown-item btn rounded-4 shadow bg-success text-light d-flex justify-content-center" href="{% url 'contact' %}" style="color: white; font-size: larger;width: 70%;">
+                              <i class="fa-solid fa-phone"></i>&nbsp;<b>Contact</b>
+                            </a>
+                          <li class="d-flex justify-content-center">
+                            <a class="dropdown-item btn rounded-4 shadow bg-success text-light mt-3 d-flex justify-content-center" href="{% url 'viziune' %}" style="color: white; font-size: larger;width: 70%;">
+                              <i class="fa-solid fa-eye"></i>&nbsp;<b>Viziune</b>
+                            </a>
+                          </li>
+                          </li>
                         </ul>
                       </li>
                     </ul>
