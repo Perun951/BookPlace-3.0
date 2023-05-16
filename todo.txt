@@ -1,7 +1,13 @@
 -sign/login in form
+-poza profil
+-profile image
 -contact form(+verificare admin(ep6))
 -favourites(idee:cart code with stein) + adauga pe pagina contul meu
 -authentificare google
 -new front page -multiple carousels with 9 products from every category(emag)
 -search filter
 -sterg tot ce inseamna url, views si file pt test
+-forum carti
+-follow
+-add a new partial for publisher_detail
+-author search

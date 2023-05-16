@@ -6,11 +6,12 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.utils.text import slugify
 from django.core.paginator import Paginator
+from .decorators import allowed_user
 
-from .models import Userprofile
+from .models import Userprofile, Customer
 from store.models import Product
 
-from store.forms import ProductForm
+from store.forms import ProductForm, CrateUserForm
 from store.models import Product, Category
 
 def publisher_detail(request, pk):
@@ -28,7 +29,7 @@ def publisher_detail(request, pk):
         'nums':nums
     })
 
-@login_required
+@login_required(login_url='login')
 def my_store(request):
     products = request.user.products.exclude(status=Product.DELETED)
     p= Paginator(request.user.products.exclude(status=Product.DELETED), 8)
@@ -44,7 +45,7 @@ def my_store(request):
 
 
 
-@login_required
+@login_required(login_url='login')
 def add_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
@@ -70,7 +71,7 @@ def add_product(request):
     })
 
 
-@login_required
+@login_required(login_url='login')
 def edit_product(request, pk):
     product = Product.objects.filter(user=request.user).get(pk=pk)
 
@@ -93,7 +94,7 @@ def edit_product(request, pk):
     })
 
     
-@login_required
+@login_required(login_url='login')
 def delete_product(request, pk):
     product = Product.objects.filter(user=request.user).get(pk=pk)
     product.status = Product.DELETED
@@ -103,25 +104,33 @@ def delete_product(request, pk):
 
     return redirect('my_store')
 
-@login_required
+@login_required(login_url='login')
 def myaccount(request):
     return render(request, 'userprofile/myaccount.html')
 
-
 def signup(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-
+    form = CrateUserForm()
+    if request.method=='POST':
+        form = CrateUserForm(request.POST)
         if form.is_valid():
-            user = form.save()
-
-            login(request, user)
-
-            userprofile = Userprofile.objects.create(user=user)
-
+            form.save()
+            login(request, User)
             return redirect('frontpage')
-    else:
-        form = UserCreationForm()
+    return render(request, 'userprofile/signup.html',{
+        'form': form
+    })
+    # if request.method == 'POST':
+
+    #     if form.is_valid():
+    #         user = form.save()
+
+    #         login(request, user)
+
+    #         Customer = Customer.objects.create(user=user)
+
+    #         return redirect('frontpage')
+    # else:
+    #     form = CrateUserForm()
 
     return render(request, 'userprofile/signup.html',{
         'form': form

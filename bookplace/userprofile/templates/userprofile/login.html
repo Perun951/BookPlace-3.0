@@ -7,20 +7,26 @@ Conecteaza-te
 {% block content %}
 
 <div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
-    <h5 class="card-title mx-auto" style="margin-top: 50px;"><font size="6">Conecteaza-te</font></h5>
-    <div class="d-flex justify-content-center" style="margin-bottom: 5%;margin-left: 2%;margin-right: 2%;">
+    <h5 class="card-title mx-auto" style="margin-top: 50px;"><font size="6"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;Conecteaza-te</font></h5>
+    <div class="d-flex justify-content-center" style="margin-bottom: 2%;margin-left: 2%;margin-right: 2%;">
         <form method="post" action="."  style="margin-top: 2vh;">
             {% csrf_token %}
+            <div class="mb-3" style="font-size: larger;">
+                <span><i class="fa-solid fa-user"></i>&nbsp;Nume utilizator</span>{{ form.username }}
+            </div>
+            <div class="mb-3" style="font-size: larger;">
+                <span><i class="fa-solid fa-key"></i>&nbsp;Parola</span>{{ form.password }}{{ form.remember_me }}
+            </div>
+<!--     
+            {{ form.username }}
+            {{ form.password }} -->
     
-            {{ form.as_p }}
-    
-            <button class="bg-success py-2 px-8 rounded-4 text-light border-0" style="margin-left: 5vw;">Conecteaza-te</button>
+            <button class="bg-success py-2 px-8 rounded-4 text-light border-0 shadow" style="margin-left: 5vw;font-size: larger;">Conecteaza-te</button>
         </form>
     </div>
-    <div class="mx-auto" style="font-size: larger;">
-        <p>Nu ai cont?&nbsp;&nbsp;
-        <a href="{% url 'signup' %}" style="text-decoration: none; width: 200px;height: 40px;" class="text-success">Inregistreaza-te</a>
-        </p>
+    <div style="font-size: larger;">
+        <span class="d-flex justify-content-center">Nu ai cont?</span>
+        <span class=" d-flex justify-content-center mb-5"><a href="{% url 'signup' %}" style="text-decoration: none; width: 200px;" class="text-success"><br><i class="fa-solid fa-user-plus"></i>&nbsp;Inregistreaza-te</a></span>
     </div>
 </div>
 {% endblock %}

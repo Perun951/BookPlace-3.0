@@ -5,20 +5,30 @@ Inscrie-te
 {% endblock %}
 
 {% block content %}
-<div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
-    <h5 class="card-title mx-auto" style="margin-top: 50px;"><font size="6">Inregistrare</font></h5>
+<div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; margin-bottom: 5%;  margin-top: 80px; ">
+    <h5 class="card-title mx-auto" style="margin-top: 50px; margin-bottom: 50px;"><font size="6"><i class="fa-solid fa-user-plus"></i>&nbsp;Inregistrare</font></h5>
     <div class="d-flex justify-content-center" style="margin-bottom: 5%;margin-left: 2%;margin-right: 2%;">
-        <form method="post" action="." style="margin-top: 2vh;">
+        <form method="POST" action="." style="margin-top: 2vh;">
             {% csrf_token %}
-
-            {{ form.as_p }}
-
-            <button class="bg-success py-2 px-8 rounded-4 text-light border-0" style="margin-left: 5vw;">Inregistrare</button>
+            <div class="mb-3" style="font-size: larger;">
+                <span><i class="fa-solid fa-user"></i>&nbsp;Nume utilizator</span>{{ form.username }}
+            </div>
+            <div class="mb-3" style="font-size: larger;">
+                <span><i class="fa-solid fa-envelope"></i>&nbsp;Email</span>{{ form.email }}
+            </div>
+            <div class="mb-3" style="font-size: larger;"> 
+                <span><i class="fa-solid fa-key"></i>&nbsp;Parola</span>{{ form.password1 }}
+            </div>
+            <div class="mb-5" style="font-size: larger;">
+                <span><i class="fa-solid fa-key"></i>&nbsp;Confirmare parola</span>{{ form.password2 }}{{form.remember_me}}
+            </div>
+            <button class="bg-success py-2 px-8 rounded-4 text-light border-0 shadow">Inregistrare</button>
         </form>
     </div>
+    {{form.errors}}
     <div class="mx-auto" style="font-size: larger;">
         <p>Ai cont deja?&nbsp;&nbsp;
-        <a href="{% url 'login' %}" style="text-decoration: none; width: 200px;height: 40px;" class="text-success">Conecteaza-te</a>
+        <a href="{% url 'login' %}" style="text-decoration: none; width: 200px;height: 40px;" class="text-success"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;Conecteaza-te</a>
         </p>
     </div>
 </div>

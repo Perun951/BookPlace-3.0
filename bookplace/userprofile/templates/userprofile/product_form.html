@@ -6,23 +6,60 @@
 
 {% block content %}
 <div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
-    <h5 class="card-title mx-auto" style="margin-top: 50px;"><font size="6">{{ title }}</font></h5>
-    <div class="d-flex flex-wrap gap-3" style="margin-bottom: 5%;margin-left: 2%;margin-right: 2%;">
+    <h5 class="card-title mx-auto" style="margin-top: 50px;"><font size="6"><i class="fa-solid fa-plus"></i>&nbsp;{{ title }}</font></h5>
+    <div class="d-flex flex-wrap gap-3" style="margin-bottom: 20px;margin-left: 2%;margin-right: 2%;">
         <form method="post" action="." enctype="multipart/form-data" class="p-2" style="width: 100%;">
             {% csrf_token %}
 
-            {{form.as_p}}
-
-            <button class="btn btn-success" style="width: 100px;height: 37px;">
-                Adauga
+            <!-- {{form.as_p}} -->
+            <!-- 'category', 'title', 'author', 'image', 'pdf', 'editie', 'editura', 'limba', 'description' -->
+            <div class="mb-3" style="font-size: larger;">
+                <span><i class="fa-solid fa-list"></i>&nbsp;Catgorie</span>{{ form.category }}
+            </div>
+            <div class="mb-3" style="font-size: larger;">
+                <span><i class="fa-solid fa-pen-nib"></i>&nbsp;Titlu</span>{{ form.title }}
+            </div>
+            <div class="row">
+                <div class="mb-3 col" style="font-size: larger;">
+                    <span><i class="fa-solid fa-at"></i>&nbsp;Autor</span>{{ form.author }}
+                </div>
+                <div class="mb-3 col" style="font-size: larger;">
+                    <span><i class="fa-solid fa-language"></i>&nbsp;Limba</span>{{ form.limba }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3 col" style="font-size: larger;">
+                    <span><i class="fa-solid fa-image"></i>&nbsp;Imagine</span><br>{{ form.image }}
+                </div>
+                <div class="mb-3 col" style="font-size: larger;">
+                    <span><i class="fa-solid fa-file-arrow-up"></i>&nbsp;Fisier</span><br>{{ form.pdf }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3 col" style="font-size: larger;">
+                    <span><i class="fa-solid fa-hashtag"></i>&nbsp;Editie</span>{{ form.editie }}
+                </div>
+                <div class="mb-3 col" style="font-size: larger;">
+                    <span><i class="fa-solid fa-pen"></i>&nbsp;Editura</span>{{ form.editura }}
+                </div>
+            </div>
+            <div class="mb-3" style="font-size: larger;">
+                <span><i class="fa-solid fa-comment"></i>&nbsp;Descriere</span>{{ form.description }}
+            </div>
+            <button class="col btn btn-success rounded-4 d-flex mx-auto shadow mt-4" style="width: 150px;height: 50px;font-size: larger;">
+                <span class="mx-auto">Adauga</span>
             </button>
-
+            {% if product %}
+            <button class="col btn d-flex align-items-center mx-auto text-bg-danger rounded-4 shadow mt-3" style="width: 150px;height: 50px;font-size: larger;">
+                <a href="{% url 'delete_product' product.id %}" class="mx-auto" style="text-decoration: none;color: white;">Sterge</a>
+            </button>
+            {% endif %}
         </form>
-        {% if product %}
-        <div class="d-flex align-items-center justify-content-start text-bg-danger rounded" style="width: 100px;height: 37px; margin-left: 7px;">
+        <!-- {% if product %}
+        <div class="d-flex align-items-center mx-auto text-bg-danger rounded-4 shadow" style="width: 150px;height: 50px;font-size: larger;">
             <a href="{% url 'delete_product' product.id %}" class="mx-auto" style="text-decoration: none;color: white;">Sterge</a>
         </div>
-        {% endif %}
+        {% endif %} -->
     </div>
 </div>
 {% endblock %}
