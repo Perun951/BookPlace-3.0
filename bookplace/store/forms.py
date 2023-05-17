@@ -1,11 +1,23 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import Product
 from userprofile.models import Customer
-from django.forms import TextInput, EmailInput, PasswordInput
+from django.forms import TextInput, EmailInput, PasswordInput, ModelForm
 from django.contrib.auth.models import User
 
-
+class LoginForm(AuthenticationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password']
+        widgets = {
+            'username': forms.TextInput(attrs={
+                'class': 'w-100 p-3 rounded-4 border border-success shadow',
+                'placeholder': 'Exemplu1234',
+            }),
+            'password': forms.PasswordInput(attrs={
+                'class': 'w-100 p-3 rounded-4 border border-success shadow',
+            }),
+        }
 
 class CrateUserForm(UserCreationForm):
     class Meta:
@@ -21,12 +33,18 @@ class CrateUserForm(UserCreationForm):
                 'placeholder': 'exemplu@email.com',
             }),
             'password1': forms.PasswordInput(attrs={
+                'type': 'password',
                 'class': 'w-100 p-3 rounded-4 border border-success shadow',
-            }), 
+            }),
             'password2': forms.PasswordInput(attrs={
                 'class': 'w-100 p-3 rounded-4 border border-success shadow',
             }), 
         }
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['password1'].widget.attrs.update({'class': 'w-100 p-3 rounded-4 border border-success shadow', 'placeholder': 'Se recomanda o combinatie de caractere',})
+        self.fields['password2'].widget.attrs.update({'class': 'w-100 p-3 rounded-4 border border-success shadow', 'placeholder': 'Rescrie parola',})
 
 class ProductForm(forms.ModelForm):
     class Meta:
@@ -67,3 +85,4 @@ class ProductForm(forms.ModelForm):
                 'placeholder': 'Adauga editura cartii',
             }),                            
         }
+

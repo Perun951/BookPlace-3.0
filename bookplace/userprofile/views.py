@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
@@ -11,7 +11,7 @@ from .decorators import allowed_user
 from .models import Userprofile, Customer
 from store.models import Product
 
-from store.forms import ProductForm, CrateUserForm
+from store.forms import ProductForm, CrateUserForm, LoginForm
 from store.models import Product, Category
 
 def publisher_detail(request, pk):
@@ -108,12 +108,27 @@ def delete_product(request, pk):
 def myaccount(request):
     return render(request, 'userprofile/myaccount.html')
 
+def login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        User = authenticate(request, username=username, password=password)
+        if User is not None:
+            login(request,User)
+            return redirect('frontpage')
+        else: 
+            messages.info(request, 'Numele de utilizator sau parola sunt incorecte')
+        return render(request, 'userprofile/login.html', {
+        })
+    return render(request, 'userprofile/login.html', {
+    })
+
 def signup(request):
     form = CrateUserForm()
     if request.method=='POST':
         form = CrateUserForm(request.POST)
         if form.is_valid():
-            form.save()
+            User = form.save()
             login(request, User)
             return redirect('frontpage')
     return render(request, 'userprofile/signup.html',{

@@ -89,6 +89,7 @@ class Product(models.Model):
         return Review.objects.filter(product=self).count()
         # object-> produs;
 
+    
 class Review(models.Model):
     product = models.ForeignKey(Product, related_name='reviews', on_delete=models.CASCADE)
     rating = models.IntegerField(default=5)
@@ -98,3 +99,4 @@ class Review(models.Model):
 
     def __str__(self):
         return str(self.id)
+    
