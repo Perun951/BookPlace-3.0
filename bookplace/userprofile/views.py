@@ -108,32 +108,43 @@ def delete_product(request, pk):
 def myaccount(request):
     return render(request, 'userprofile/myaccount.html')
 
-def login(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        User = authenticate(request, username=username, password=password)
-        if User is not None:
-            login(request,User)
-            return redirect('frontpage')
-        else: 
-            messages.info(request, 'Numele de utilizator sau parola sunt incorecte')
-        return render(request, 'userprofile/login.html', {
-        })
-    return render(request, 'userprofile/login.html', {
-    })
+def LogIn(request):
+    if request.user.is_authenticated:
+        return redirect('frontpage')
+    else:
+        if request.method == 'POST':
+            form = LoginForm(data=request.POST)
+            if form.is_valid():
+                username = form.cleaned_data.get('username')
+                password = form.cleaned_data.get('password')
+                User = authenticate(request, username=username, password=password)
+                if User is not None:
+                    login(request, User)
+                    return redirect('frontpage')
+                else:
+                    messages.info(request, 'Nume sau parola sunt invalide')
+        else:
+            form = LoginForm()
+        return render(request, 'userprofile/login.html',{'form': form})
 
 def signup(request):
-    form = CrateUserForm()
-    if request.method=='POST':
-        form = CrateUserForm(request.POST)
-        if form.is_valid():
-            User = form.save()
-            login(request, User)
-            return redirect('frontpage')
-    return render(request, 'userprofile/signup.html',{
-        'form': form
-    })
+    if request.user.is_authenticated:
+        return redirect('frontpage')
+    else:
+        form = CrateUserForm()
+        if request.method=='POST':
+            form = CrateUserForm(request.POST)
+            if form.is_valid():
+                user = form.save()
+                username=form.cleaned_data.get('username')
+                Customer.objects.create(
+                    user=user,
+                    )
+                messages.success(request, 'Contul '+username+' a fost creat')
+                return redirect('login')
+        return render(request, 'userprofile/signup.html',{
+            'form': form
+        })
     # if request.method == 'POST':
 
     #     if form.is_valid():

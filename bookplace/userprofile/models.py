@@ -19,6 +19,7 @@ class Customer(models.Model):
     phone = models.CharField(max_length=20, null=True)
     email = models.EmailField(null=False,blank=False)
     date_created = models.DateTimeField(auto_now_add=True, null=False)
+    profile_pic = models.ImageField(null=True,blank=True,upload_to='uploads/profile_images/')
 
     def __str__(self):
         return self.user.username

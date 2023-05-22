@@ -18,6 +18,10 @@ class LoginForm(AuthenticationForm):
                 'class': 'w-100 p-3 rounded-4 border border-success shadow',
             }),
         }
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs.update({'class': 'w-100 p-3 rounded-4 border-0 shadow', 'placeholder': 'Introdu numele de utilizator',})
+        self.fields['password'].widget.attrs.update({'class': 'w-100 p-3 rounded-4 border-0 shadow', 'placeholder': 'Introdu parola',})
 
 class CrateUserForm(UserCreationForm):
     class Meta:
@@ -43,8 +47,8 @@ class CrateUserForm(UserCreationForm):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['password1'].widget.attrs.update({'class': 'w-100 p-3 rounded-4 border border-success shadow', 'placeholder': 'Se recomanda o combinatie de caractere',})
-        self.fields['password2'].widget.attrs.update({'class': 'w-100 p-3 rounded-4 border border-success shadow', 'placeholder': 'Rescrie parola',})
+        self.fields['password1'].widget.attrs.update({'class': 'w-100 p-3 rounded-4 border-0 shadow', 'placeholder': 'Creaza o parola',})
+        self.fields['password2'].widget.attrs.update({'class': 'w-100 p-3 rounded-4 border-0 shadow', 'placeholder': 'Reintrodu parola',})
 
 class ProductForm(forms.ModelForm):
     class Meta:
