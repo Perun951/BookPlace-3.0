@@ -1,8 +1,6 @@
 # BookPlace-3.0
-
+### Realizat de Boana Tudor Stefan si Jianu Luca Andrei Iancu
 ### About the project
-
-The final version of a project with wich I hope to enable the free and open access to educational material that are in the public domain for everyone who find himself in need. 
 
 The project presents a website in which everyone will be able to download for free .pdf and .epub files that contain knowledge and that are posted in the public domain.
 
