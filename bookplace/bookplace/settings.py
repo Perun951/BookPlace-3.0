@@ -28,11 +28,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_HOST = 'smtp.protonmail.com'
-# EMAIL_PORT = 1025
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = 'tudor.boana@protonmail.com'
-# EMAIL_HOST_PASSWORD = 'Perun(9517)'
 
 LOGIN_REDIRECT_URL = 'myaccount'
 LOGOUT_REDIRECT_URL = 'frontpage'
