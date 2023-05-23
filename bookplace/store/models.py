@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.core.validators import FileExtensionValidator
 from django.db import models
 from django.core.files import File
-
+from userprofile.models import Customer
 from io import BytesIO
 from PIL import Image
 
@@ -45,7 +45,8 @@ class Product(models.Model):
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, default=ACTIVE)
     recomanda = models.BooleanField(default=False)
     downloads = models.IntegerField(default=0)
-    
+    users_wishlist = models.ManyToManyField(User, related_name="user_wishlist",blank=True)
+
     class Meta:
         ordering = ('-created_at',)
 

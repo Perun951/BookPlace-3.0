@@ -6,15 +6,75 @@ Contul meu
 
 {% block content %}
 <div class="card container mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
-    <div class="row align-items-start">
-        <span class="col card-title text-success" style="margin-top: 50px;"><font size="6"><b>{{ user.username }}<br>{{user.get_full_name}}<br>Email: {{user.email}}</b></font></span>
-        <div class="col d-flex justify-content-end gap-3" style="margin-bottom: 5%;margin-left: 2%;margin-right: 2%;margin-top: 50px;">
-            <button type="button" class="btn btn-danger shadow rounded-4" style="align-self: flex-end;height: 60px;width: 170px;font-size: larger;">
-                <a href="{% url 'logout' %}" style="text-decoration: none; color: white;"><b>Deconectare</b></a>
-            </button>
+    <!-- <div class="row align-items-start">
+        <div class="col card-title text-success justify-content-center d-flex align-self-center" style="margin-top: 50px;">
+            <p><font size="6"><b>{{ user.username }}{{user.get_full_name}}<br>Email: {{user.email}}<br>Numar telefon: {{request.user.customer.phone}}</b></font></p>
+        </div>
+        <div class="col d-flex justify-content-center align-self-center" style="margin-bottom: 5%;margin-top: 50px;">
+            <img class="profile-pic" src="{{request.user.customer.profile_pic.url}}" width="250px" height="250px" style="border-radius: 50%;">
         </div>
     </div>
-    <hr>
+    <a class="justify-content-start d-flex" href="{% url 'logout' %}" style="text-decoration: none; color: white;">
+        <button type="button" class="btn btn-danger shadow rounded-4" style="align-self: flex-end;height: 60px;width: 170px;font-size: larger;">
+            <b>Deconectare</b>
+        </button>
+    </a> -->
+    <div class="row align-items-start mb-4">
+        <div class="col card-title text-success justify-content-center d-flex align-self-center" style="margin-top: 50px;">
+            <form method="POST" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3" style="font-size: larger;">
+                        <div class="d-flex justify-content-start" style="font-size: larger;">
+                            <p><i class="fa-solid fa-user"></i>&nbsp;Nume utilizator</p><br>
+                        </div>
+                        <div class="d-flex justify-content-start rounded-4">
+                            {{ form.name }}
+                        </div>
+                    </div>
+                    <div class="mb-3" style="font-size: larger;">
+                        <div class="d-flex justify-content-start" style="font-size: larger;">
+                            <p><i class="fa-solid fa-hashtag"></i>&nbsp;Numar telefon</p><br>
+                        </div>
+                        <div class="d-flex justify-content-start rounded-4">
+                            {{ form.phone }}
+                        </div>
+                    </div>
+                    <div class="mb-3" style="font-size: larger;">
+                        <div class="d-flex justify-content-start" style="font-size: larger;">
+                            <p><i class="fa-solid fa-envelope"></i>&nbsp;Email</p><br>
+                        </div>
+                        <div class="d-flex justify-content-start rounded-4">
+                            {{ form.email }}
+                        </div>
+                    </div>
+                    <div class="mb-3" style="font-size: larger;">
+                        <div class="d-flex justify-content-start" style="font-size: larger;">
+                            <p><i class="fa-solid fa-image"></i>&nbsp;Imagine de profil</p><br>
+                        </div>
+                        <div class="d-flex justify-content-start rounded-4">
+                            {{ form.profile_pic }}
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success shadow rounded-4 mb-4 mt-4" style="align-self: flex-end;height: 60px;width: 170px;font-size: larger;">
+                        <b>Salveaza</b>
+                    </button>
+                    <a class="justify-content-start d-flex" href="{% url 'logout' %}" style="text-decoration: none; color: white;">
+                        <button type="button" class="btn btn-danger shadow rounded-4" style="align-self: flex-end;height: 60px;width: 170px;font-size: larger;">
+                            <b>Deconectare</b>
+                        </button>
+                    </a>
+            </form>
+        </div>
+        <div class="col d-flex justify-content-center align-self-center" style="margin-bottom: 5%;margin-top: 50px;">
+            <img class="profile-pic shadow" src="{{request.user.customer.profile_pic.url}}" width="300px" height="300px" style="border-radius: 50%;">
+        </div>
+    </div>
+    <!-- <a class="justify-content-start d-flex" href="{% url 'logout' %}" style="text-decoration: none; color: white;">
+        <button type="button" class="btn btn-danger shadow rounded-4" style="align-self: flex-end;height: 60px;width: 170px;font-size: larger;">
+            <b>Deconectare</b>
+        </button>
+    </a> -->
+    <!-- <hr>
     <div class=" px-4" style="margin-top: 20px;">
         <div class="col card-title">
             <span class="text-success"><font size="5"><b>Carti favorite:</b></font></span>
@@ -41,6 +101,6 @@ Contul meu
                 </ul>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 {% endblock %}

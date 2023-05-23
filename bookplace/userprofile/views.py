@@ -3,16 +3,30 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.text import slugify
 from django.core.paginator import Paginator
+from django.http import HttpResponseRedirect
+
 from .decorators import allowed_user
+from .models import Customer
 
-from .models import Userprofile, Customer
 from store.models import Product
-
-from store.forms import ProductForm, CrateUserForm, LoginForm
+from store.forms import ProductForm, CrateUserForm, LoginForm, CustomerForm
 from store.models import Product, Category
+
+
+@login_required(login_url='login')
+def add_to_wishlist(request, id):
+    product = get_object_or_404(Product, id=id)
+    if product.users_wishlist.filter(id=request.user.id).exists():
+        product.users_wishlist.remove(request.user)
+    else:
+        product.users_wishlist.add(request.user)
+    return HttpResponseRedirect(request.META["HTTP_REFERER"])
+
+
+
 
 def publisher_detail(request, pk):
     user = User.objects.get(pk=pk)
@@ -106,7 +120,15 @@ def delete_product(request, pk):
 
 @login_required(login_url='login')
 def myaccount(request):
-    return render(request, 'userprofile/myaccount.html')
+    customer = request.user.customer
+    form = CustomerForm(instance=customer)
+    if request.method == 'POST':
+        form = CustomerForm(request.POST, request.FILES, instance=customer)
+        if form.is_valid():
+            form.save()
+    return render(request, 'userprofile/myaccount.html',{
+        'form': form
+    })
 
 def LogIn(request):
     if request.user.is_authenticated:
@@ -139,6 +161,8 @@ def signup(request):
                 username=form.cleaned_data.get('username')
                 Customer.objects.create(
                     user=user,
+                    name=user.username,
+                    email=user.email,
                     )
                 messages.success(request, 'Contul '+username+' a fost creat')
                 return redirect('login')

@@ -5,13 +5,13 @@ from django.contrib import admin
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-class Userprofile(models.Model):
-    user = models.OneToOneField(User, related_name='userprofile', on_delete=models.CASCADE)
-    verificat = models.BooleanField(default=False)
-    image = models.ImageField(upload_to='uploads/profile_images/', blank=True, null=True)
+# class Userprofile(models.Model):
+#     user = models.OneToOneField(User, related_name='userprofile', on_delete=models.CASCADE)
+#     verificat = models.BooleanField(default=False)
+#     image = models.ImageField(upload_to='uploads/profile_images/', blank=True, null=True)
 
-    def __str__(self):
-        return self.user.username
+#     def __str__(self):
+#         return self.user.username
 
 class Customer(models.Model):
     user = models.OneToOneField(User, related_name='customer', null=True, on_delete=models.CASCADE)
@@ -19,7 +19,8 @@ class Customer(models.Model):
     phone = models.CharField(max_length=20, null=True)
     email = models.EmailField(null=False,blank=False)
     date_created = models.DateTimeField(auto_now_add=True, null=False)
-    profile_pic = models.ImageField(null=True,blank=True,upload_to='uploads/profile_images/')
+    profile_pic = models.ImageField(default="Sample_User_Icon.png", null=True,blank=True,upload_to='uploads/profile_images/')
+    verificat = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user.username
