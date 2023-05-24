@@ -6,19 +6,6 @@ Contul meu
 
 {% block content %}
 <div class="card container mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
-    <!-- <div class="row align-items-start">
-        <div class="col card-title text-success justify-content-center d-flex align-self-center" style="margin-top: 50px;">
-            <p><font size="6"><b>{{ user.username }}{{user.get_full_name}}<br>Email: {{user.email}}<br>Numar telefon: {{request.user.customer.phone}}</b></font></p>
-        </div>
-        <div class="col d-flex justify-content-center align-self-center" style="margin-bottom: 5%;margin-top: 50px;">
-            <img class="profile-pic" src="{{request.user.customer.profile_pic.url}}" width="250px" height="250px" style="border-radius: 50%;">
-        </div>
-    </div>
-    <a class="justify-content-start d-flex" href="{% url 'logout' %}" style="text-decoration: none; color: white;">
-        <button type="button" class="btn btn-danger shadow rounded-4" style="align-self: flex-end;height: 60px;width: 170px;font-size: larger;">
-            <b>Deconectare</b>
-        </button>
-    </a> -->
     <div class="row align-items-start mb-4">
         <div class="col card-title text-success justify-content-center d-flex align-self-center" style="margin-top: 50px;">
             <form method="POST" action="" enctype="multipart/form-data">
@@ -69,38 +56,10 @@ Contul meu
             <img class="profile-pic shadow" src="{{request.user.customer.profile_pic.url}}" width="300px" height="300px" style="border-radius: 50%;">
         </div>
     </div>
-    <!-- <a class="justify-content-start d-flex" href="{% url 'logout' %}" style="text-decoration: none; color: white;">
-        <button type="button" class="btn btn-danger shadow rounded-4" style="align-self: flex-end;height: 60px;width: 170px;font-size: larger;">
-            <b>Deconectare</b>
-        </button>
-    </a> -->
-    <!-- <hr>
-    <div class=" px-4" style="margin-top: 20px;">
-        <div class="col card-title">
-            <span class="text-success"><font size="5"><b>Carti favorite:</b></font></span>
-            <br>
-            <div class="overflow-auto mt-3">
-                <ul class="list-group list-group-flush" style="overflow:auto; max-height: 50vh;">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">An item</li>
-                </ul>
-            </div>
-        </div>
-    </div> -->
+    <hr>
+    <div style="padding-left: 110px;padding-right: 110px;">
+        <div class="d-flex justify-content-center text-success" style="font-size: 30px;"><i class="fa-solid fa-heart"></i>&nbsp;Favorite</div>
+
+    </div>
 </div>
 {% endblock %}

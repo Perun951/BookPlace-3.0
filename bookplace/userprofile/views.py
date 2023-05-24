@@ -26,6 +26,13 @@ def add_to_wishlist(request, id):
     return HttpResponseRedirect(request.META["HTTP_REFERER"])
 
 
+@login_required(login_url='login')
+def wishlist(request):
+    products = Product.objects.filter(users_wishlist=request.user)
+
+    return render(request, 'userprofile/favorite.html',{
+        'wishlist': products,
+    })
 
 
 def publisher_detail(request, pk):

@@ -1,0 +1,52 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+Favorite
+{% endblock %}
+
+{% block content %}
+
+<div class="card mx-auto rounded-4 shadow p-3 mb-5 bg-white rounded border-0" style="background-color: white; width: 95%; height: 90%; margin-bottom: 5%;  margin-top: 80px; ">
+    <h5 class="card-title mx-auto" style="margin-top: 50px;margin-bottom: 50px;"><font size="16">Favorite</font></h5>
+    {% if wishlist %}
+    {% for product in wishlist %}
+    <div class="card mb-3 mx-auto shadow rounded-4" style="width: 800px;height: 200px;">
+        <div class="row g-0">
+            <div class="col-3">
+                <a href="{% url 'product_detail'  product.category.slug product.slug %}" style="text-decoration: none;"> 
+                    <img src="{{ product.get_thumbnail }}" class="img-fluid rounded-start-4" alt="...">
+                </a>
+            </div>
+            <div class="col-4 px-3">
+                <a href="{% url 'product_detail'  product.category.slug product.slug %}" style="text-decoration: none;"> 
+                    <h5 class="card-title text-dark">{{ product.title }}</h5>
+                    <p class="card-text text-success" align="left"><i class="fa-solid fa-user"></i>&nbsp;{{product.author}}</p>
+                    <p align="left" class="text-success"><i class="fa-solid fa-star"></i>&nbsp;{{ product.get_rating }}/10 [{{ product.reviews.count }}]</span></p>
+                </a>
+                <a href="{% url 'publisher_detail' product.user.id %}" style="text-decoration: none;">
+                    <p class="text-success" align="left"><i class="fa-solid fa-at"></i>&nbsp;{% firstof product.user.get_full_name product.user.username %}</p>
+                </a>
+            </div>
+            <div class="col-2 p-2">
+                <a href="{{ product.pdf.url }}" download class="d-flex align-items-center  justify-content-end" style="text-decoration: none; height: 100%;width: 100%;">
+                    <button class="btn bg-success text-light border-o rounded-4 shadow p-2" style="width: 60px;height: 60px;">
+                        <i class="fa-sharp fa-solid fa-download fa-2xl"></i>
+                    </button>
+                </a>
+            </div>
+            <div class="col-2 p-2">
+                <a href="{% url 'user_wishlist' product.id %}" class="d-flex align-items-center  justify-content-end" style="text-decoration: none; height: 100%;width: 100%;">
+                    <button class="btn bg-success text-light border-o rounded-4 shadow p-2" style="width: 60px;height: 60px;">
+                        <i class="fa-solid fa-heart fa-2xl"></i>
+                    </button>
+                </a>
+            </div>
+        </div>
+        </a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="mb-3 card bg-warning justify-content-center d-flex align-items-center mx-auto p-3 rounded-4 shadow border-0" style="width: 600px; height: 100px;"><h1>Nu exista produse in lista!</h1></div>
+    {% endif %}
+</div>
+{% endblock %}

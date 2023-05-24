@@ -20,5 +20,7 @@ urlpatterns = [
     # path('reset_parola_complete/', auth_views.PasswordResetCompleteView.as_view(), name="password_reset_complete"),
 
     # Wishlist
-    path('favorite/adauga/<int:id>', views.add_to_wishlist, name="user_wishlist"),
+    path('favorite/adauga/<int:id>', views.add_to_wishlist, name='user_wishlist'),
+    path('favorite/', views.wishlist, name='wishlist'),
+
 ]
