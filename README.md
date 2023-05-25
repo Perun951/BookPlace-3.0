@@ -7,7 +7,10 @@ Proiectul prezinta o platforma ce are ca scop inmanarea accesului liber la infor
 
 ## Rol realizatori
 
-Boana Tudor Stefan - Realizator frontend + backend produse
-Luca Jianau - Realizator backend utilizatori
+### Boana Tudor Stefan  
+Realizator frontend + backend produse
+
+### Luca Jianau 
+Realizator backend utilizatori
 
 
