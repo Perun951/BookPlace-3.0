@@ -24,6 +24,15 @@ Realizator backend utilizatori
 + Securitatea renumita ce vine la pachet cu Django.
 + O lista de categori ce vor ajuta la filtrarea continutului dorit.
 
+##Limbaje folosite:
++ #HTML
+   - Folosit pentru crearea interfatei
++ CSS
+   - Folosit pentru crearea interfatei
++ BOOTSTRAP
+   - Folosit pentru crearea interfatei
++ SQLite
+   - Folosit pentru baza de date
++ Python
 
-## Limbaj folosit: Python, HTML
 ## Frmework-uri: Django, Pillow
