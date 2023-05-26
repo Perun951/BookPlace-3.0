@@ -24,7 +24,7 @@ Realizator backend utilizatori
 + Securitatea renumita ce vine la pachet cu Django.
 + O lista de categori ce vor ajuta la filtrarea continutului dorit.
 
-##Limbaje folosite:
+## Limbaje folosite:
 + ### HTML
    - Folosit pentru crearea interfatei
 + ### CSS
