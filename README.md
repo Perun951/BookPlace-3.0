@@ -25,14 +25,14 @@ Realizator backend utilizatori
 + O lista de categori ce vor ajuta la filtrarea continutului dorit.
 
 ##Limbaje folosite:
-+ # HTML
++ ### HTML
    - Folosit pentru crearea interfatei
-+ CSS
++ ### CSS
    - Folosit pentru crearea interfatei
-+ BOOTSTRAP
++ ### BOOTSTRAP
    - Folosit pentru crearea interfatei
-+ SQLite
++ ### SQLite
    - Folosit pentru baza de date
-+ Python
++ ### Python
 
 ## Frmework-uri: Django, Pillow
