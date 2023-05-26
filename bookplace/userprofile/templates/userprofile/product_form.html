@@ -46,9 +46,15 @@
             <div class="mb-3" style="font-size: larger;">
                 <span><i class="fa-solid fa-comment"></i>&nbsp;Descriere</span>{{ form.description }}
             </div>
+            {% if product %}
             <button class="col btn btn-success rounded-4 d-flex mx-auto shadow mt-4" style="width: 150px;height: 50px;font-size: larger;">
-                <span class="mx-auto">Adauga</span>
+                <span class="mx-auto" style="font-size: larger;">Salveaza</span>
             </button>
+            {% else %}
+            <button class="col btn btn-success rounded-4 d-flex mx-auto shadow mt-4" style="width: 150px;height: 50px;font-size: larger;">
+                <span class="mx-auto" style="font-size: larger;">Adauga</span>
+            </button>
+            {% endif %}
         </form>
         {% if product %}
         <a href="{% url 'delete_product' product.id %}" class="mx-auto" style="text-decoration: none;color: white;">

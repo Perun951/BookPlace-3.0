@@ -38,7 +38,7 @@ def wishlist(request):
 def publisher_detail(request, pk):
     user = User.objects.get(pk=pk)
     products = user.products.filter(status=Product.ACTIVE)
-    p= Paginator(Product.objects.all(), 8)
+    p= Paginator(Product.objects.all(), 4)
     page = request.GET.get('page')
     products_list = p.get_page(page)
     nums = "a" * products_list.paginator.num_pages
@@ -53,7 +53,7 @@ def publisher_detail(request, pk):
 @login_required(login_url='login')
 def my_store(request):
     products = request.user.products.exclude(status=Product.DELETED)
-    p= Paginator(request.user.products.exclude(status=Product.DELETED), 8)
+    p= Paginator(request.user.products.exclude(status=Product.DELETED), 4)
     page = request.GET.get('page')
     products_list = p.get_page(page)
     nums = "a" * products_list.paginator.num_pages
