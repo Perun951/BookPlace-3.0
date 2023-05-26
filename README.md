@@ -25,3 +25,5 @@ Realizator backend utilizatori
 + O lista de categori ce vor ajuta la filtrarea continutului dorit.
 
 
+## Limbaj folosit: Python, HTML
+## Frmework-uri: Django, Pillow
