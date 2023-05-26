@@ -1,4 +1,0 @@
--favourites(41.00)
--contact form(+verificare admin(ep6))
--forum carti
--add a new partial for publisher_detail

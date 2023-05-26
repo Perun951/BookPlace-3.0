@@ -31,15 +31,10 @@
                 </form>
                 <button class="btn btn-success bg-body-success rounded-4 shadow" style="font-size: larger; " type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 <button class="navbar-toggler btn btn-success bg-body-success shadow text-light border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-                  <!-- <span class="navbar-toggler-icon"></span> -->
                   <i class="fa-solid fa-bars"></i>
                 </button>
               </div>
               <div class="offcanvas offcanvas-end text-bg-light" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-                <!-- <form class="d-flex mt-3 " style="margin-left: 4%;margin-right: 4%;" role="search" method="get" action="/search/">
-                  <input class="form-control me-2 shadow bg-body-tertiary rounded-4" type="search" placeholder="CAUTARE CARTE" aria-label="Search" name="query">
-                  <button class="btn btn-success bg-body-success rounded-4 shadow" style="font-size: larger; " type="submit">Cauta</button>
-                </form>   -->
                 <div class="offcanvas-header d-flex justify-content-around gap-3" style="height: 100px;">
                   {% if request.user.is_authenticated %}
                     <a href="{% url 'myaccount' %}" class="btn btn-success d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded-4 shadow" style="color: white; text-decoration: none; margin-top: 1vh;width: 60%; height: 100%;"><button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: larger; width: 100%;height: 100%;"><i class="fa-solid fa-user"></i>&nbsp;Contul meu</button></a>
@@ -75,9 +70,6 @@
                           <h5 class="d-flex justify-content-center text-success"><b><i class="fa-solid fa-file"></i>&nbsp;Despre noi&nbsp;<i class="fa-solid fa-sort-down"></i></b></h5>
                         </a>
                         <ul class="dropdown-menu border-0 bg-light">
-                          <!-- <li><a class="dropdown-item btn" href="{% url 'contact' %}" style="color: white; font-size: larger;">Contact</a></li>
-                          <li><hr class="my-3"></li>
-                          <li><a class="dropdown-item btn" href="{% url 'viziune' %}" style="color: white; font-size: larger;">Viziune</a></li> -->
                           <li class="d-flex justify-content-center">
                             <a class="dropdown-item btn rounded-4 shadow bg-success text-light d-flex justify-content-center" href="{% url 'contact' %}" style="color: white; font-size: larger;width: 70%;">
                               <i class="fa-solid fa-phone"></i>&nbsp;<b>Contact</b>

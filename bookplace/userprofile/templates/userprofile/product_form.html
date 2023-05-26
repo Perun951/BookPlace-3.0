@@ -49,12 +49,14 @@
             <button class="col btn btn-success rounded-4 d-flex mx-auto shadow mt-4" style="width: 150px;height: 50px;font-size: larger;">
                 <span class="mx-auto">Adauga</span>
             </button>
-            {% if product %}
-            <button class="col btn d-flex align-items-center mx-auto text-bg-danger rounded-4 shadow mt-3" style="width: 150px;height: 50px;font-size: larger;">
-                <a href="{% url 'delete_product' product.id %}" class="mx-auto" style="text-decoration: none;color: white;">Sterge</a>
-            </button>
-            {% endif %}
         </form>
+        {% if product %}
+        <a href="{% url 'delete_product' product.id %}" class="mx-auto" style="text-decoration: none;color: white;">
+            <button class="col btn d-flex align-items-center mx-auto text-bg-danger rounded-4 shadow mt-3" style="width: 150px;height: 50px;font-size: larger;">
+                <span class="mx-auto" style="font-size: larger;">Sterge</span>
+            </button>
+        </a>
+        {% endif %}
         <!-- {% if product %}
         <div class="d-flex align-items-center mx-auto text-bg-danger rounded-4 shadow" style="width: 150px;height: 50px;font-size: larger;">
             <a href="{% url 'delete_product' product.id %}" class="mx-auto" style="text-decoration: none;color: white;">Sterge</a>

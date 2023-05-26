@@ -20,17 +20,19 @@
                                         <p class="card-text text-success" align="left"><i class="fa-solid fa-user"></i>&nbsp;{{product.author}}</p>
                                         <p align="left"><span class="text-success"><i class="fa-solid fa-star"></i>&nbsp;{{ product.get_rating }}/10 [{{ product.reviews.count }}]</span></p> 
                                         <p class="card-text text-success" align="left"><i class="fa-solid fa-globe"></i>&nbsp;{{product.limba}}</p>
-                                        <!-- <p class="card-text text-success" align="left"><i class="fa-solid fa-at"></i>&nbsp;{% firstof product.user.get_full_name product.user.username %}</p> -->
-                                        <!-- <p align="left" class="card-text text-success">{{product.downloads}}&nbsp;<i class="fa-sharp fa-solid fa-download"></i></p> -->
                                     </a>
                                 </div>
-                                <div class="d-flex justify-content-end align-items-center ">
-                                    <a href="{{ product.pdf.url }}" download class="row" style="text-decoration: none;">
+                                <div>
+                                    <a href="{{ product.pdf.url }}" download class="d-flex align-self-start row mb-2" style="text-decoration: none;">
                                         <button class="btn d-flex bg-success align-items-center justify-content-center text-light border-o rounded-4 shadow p-2" style="width: 60px;height: 60px;">
                                             <i class="fa-sharp fa-solid fa-download fa-2xl"></i>
                                         </button>
                                     </a>
-                                    <!-- <a href="#" class="" style -->
+                                    <a href="{% url 'user_wishlist' product.id %}" class="d-flex align-self-end row mt-2" style="text-decoration: none;">
+                                        <button class="btn d-flex bg-success align-items-center justify-content-center text-light border-o rounded-4 shadow p-2" style="width: 60px;height: 60px;">
+                                            <i class="fa-sharp fa-solid fa-heart fa-2xl"></i>
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
