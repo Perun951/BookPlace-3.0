@@ -25,7 +25,7 @@ Realizator backend utilizatori
 + O lista de categori ce vor ajuta la filtrarea continutului dorit.
 
 ##Limbaje folosite:
-+ #HTML
++ # HTML
    - Folosit pentru crearea interfatei
 + CSS
    - Folosit pentru crearea interfatei
