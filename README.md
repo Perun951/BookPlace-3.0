@@ -1,20 +1,38 @@
-# BookPlace-3.0
-### Realizat de Boana Tudor Stefan si Jianu Luca Andrei Iancu
-### About the project
+# BookPlace
+## Realizat de Boana Tudor Stefan si Jianu Luca Andrei Iancu
 
-The project presents a website in which everyone will be able to download for free .pdf and .epub files that contain knowledge and that are posted in the public domain.
+## Despre proiect
 
-The website was creeated for a contest schedueld at the time of writing of this readme file to take place in May of 2023.
+Proiectul prezinta o platforma ce are ca scop inmanarea accesului liber la informatii din domeniul public. Aceasta platforma combina o intrerfata intuitiva si siguranta, astfel aducand totodata si o noua modalitate pentru scriitorii incepatori sa isi publice lucrarile din domeni variate.
 
-As Marcus Tullius Cicero once said: ***“A room without books is like a body without a soul.”*** 
+## Rol realizatori
 
-### Features
-The project presents the following features:
-+  An easy to use and intuitive interface.
-+  A Log in/Sign up function to ensure a safe and accessible user interface.
-+  An easy way to download files through the simple press of a button.
-+  A varied way of sorting the books, including a section of books recommended by the staff.
-+  An easy to use search function.
-+  Security ia provided by the combination of Python and it's framework "Django" and the use of simple code that discurages errors.
-+  Images that will enhance the accessibility of the texts.
-+  A list of categories that will help sort out content.
+### Boana Tudor Stefan  
+Realizator frontend + backend produse
+
+### Luca Jianau 
+Realizator backend utilizatori
+
+## Benefici platforma
+###
++ O interfata intuitiva si usor de utilizat.
++ Functia de inregistrare si conectare pentru a asigura siguranta si accesibilitatea utilizatorilor.
++ O modalitate usoara de a descarca fisiere printr-o singura apasare de buton.
++ O modalitate variate de a sorta cartile, inclusiv o sectiune dedicata cartilor recomandate de admini.
++ Lista de carti favorite, ce permite utilizatorilor accesul rapid la cartile preferate, pe mai multe dispozitive.
++ Posibilatea cautarii cartilor dorite.
++ Securitatea renumita ce vine la pachet cu Django.
++ O lista de categori ce vor ajuta la filtrarea continutului dorit.
+
+## Limbaje folosite:
++ ### HTML
+   - Folosit pentru crearea interfatei
++ ### CSS
+   - Folosit pentru crearea interfatei
++ ### BOOTSTRAP
+   - Folosit pentru crearea interfatei
++ ### SQLite
+   - Folosit pentru baza de date
++ ### Python
+
+## Frmework-uri: Django, Pillow
