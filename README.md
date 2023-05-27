@@ -27,6 +27,10 @@ Realizator backend utilizatori
 
 ## Surse informatii:
 + ### carturesti.ro
++ ### unsplash.com
++ ### pexels.com
++ ### pixabay.com
+
 
 ## Limbaje folosite:
 + ### HTML
