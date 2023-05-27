@@ -23,6 +23,7 @@ Realizator backend utilizatori
 + Posibilatea cautarii cartilor dorite.
 + Securitatea renumita ce vine la pachet cu Django.
 + O lista de categori ce vor ajuta la filtrarea continutului dorit.
++ O interfata economica din punct de vedere al resurselor utilizate.
 
 ## Limbaje folosite:
 + ### HTML
