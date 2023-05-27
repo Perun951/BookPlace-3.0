@@ -3,18 +3,18 @@
 
 ## Despre proiect
 
-Proiectul prezinta o platforma ce are ca scop inmanarea accesului liber la informatii din domeniul public. Aceasta platforma combina o intrerfata intuitiva si siguranta, astfel aducand totodata si o noua modalitate pentru scriitorii incepatori sa isi publice lucrarile din domeni variate.
+Proiectul prezinta o platforma ce are ca scop inmanarea accesului liber la informatii din domeniul public. Aceasta platforma combina o intrerfata intuitiva si sigura, astfel aducand totodata si o noua modalitate pentru scriitorii incepatori sa isi publice lucrarile din domeni variate.
 
 ## Rol realizatori
 
 ### Boana Tudor Stefan  
 Realizator frontend + backend produse
 
-### Luca Jianau 
+### Jianu Luca Andrei Iancu
 Realizator backend utilizatori
 
 ## Benefici platforma
-###
+
 + O interfata intuitiva si usor de utilizat.
 + Functia de inregistrare si conectare pentru a asigura siguranta si accesibilitatea utilizatorilor.
 + O modalitate usoara de a descarca fisiere printr-o singura apasare de buton.
@@ -35,4 +35,4 @@ Realizator backend utilizatori
    - Folosit pentru baza de date
 + ### Python
 
-## Frmework-uri: Django, Pillow
+## Framework-uri: Django, Pillow

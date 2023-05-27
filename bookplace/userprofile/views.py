@@ -176,18 +176,6 @@ def signup(request):
         return render(request, 'userprofile/signup.html',{
             'form': form
         })
-    # if request.method == 'POST':
-
-    #     if form.is_valid():
-    #         user = form.save()
-
-    #         login(request, user)
-
-    #         Customer = Customer.objects.create(user=user)
-
-    #         return redirect('frontpage')
-    # else:
-    #     form = CrateUserForm()
 
     return render(request, 'userprofile/signup.html',{
         'form': form
