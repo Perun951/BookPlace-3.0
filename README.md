@@ -25,6 +25,9 @@ Realizator backend utilizatori
 + O lista de categori ce vor ajuta la filtrarea continutului dorit.
 + O interfata economica din punct de vedere al resurselor utilizate.
 
+## Surse informatii:
++ ### carturesti.ro
+
 ## Limbaje folosite:
 + ### HTML
    - Folosit pentru crearea interfatei
