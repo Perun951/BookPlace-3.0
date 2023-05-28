@@ -1,0 +1,10 @@
+-new search button
+-search filter
+-search users
+-carousels frontpage
+-cautare vocala
+-gogle recapcha
+-newsletter(autor,editura)
+-contact
+-orders(sortate dupa autor si categorie)
+-nr downloads

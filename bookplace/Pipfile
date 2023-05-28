@@ -8,6 +8,9 @@ django = "*"
 pillow = "*"
 django-star-ratings = "*"
 django-filter = "*"
+deepgram-sdk = "*"
+python-dotenv = "*"
+channels = "*"
 
 [dev-packages]
 

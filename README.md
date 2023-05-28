@@ -43,4 +43,9 @@ Realizator backend utilizatori
    - Folosit pentru baza de date
 + ### Python
 
-## Framework-uri: Django, Pillow
+## Framework-uri: Django
++ ### Django
++ ### Pillow
++ ### deepgram-sdk
++ ### python-dotenv
++ ### channels

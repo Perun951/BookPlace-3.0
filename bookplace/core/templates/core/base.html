@@ -21,29 +21,52 @@
         <style>body{font-family: 'Poppins';}</style>
     </head>
     <body style="background-color:  	white;">
-        <nav class="navbar navbar-success bg-success fixed-top">
+        <nav class="navbar navbar-success fixed-top bg-success">
           
           <div class="container-fluid">
-              <a class="navbar-brand text-light" style="font-family:'Dancing Script'" href="/"><i class="fa-solid fa-book-bookmark"></i> <b style="font-size: larger;">BookPlace</b></a>
+              <a class="navbar-brand" style="font-family:'Dancing Script';color: white;" href="/"><i class="fa-solid fa-book-bookmark"></i> <b style="font-size: larger;">BookPlace</b></a>
               <div class="d-flex gap-4">  
                 <form role="search" method="get" action="/search/" style="width: 25vw;">
-                  <input class="form-control me-2 shadow bg-body-tertiary rounded-4" type="search" placeholder="CAUTARE CARTE" aria-label="Search" name="query">
+                  <input class="form-control me-2 shadow bg-body-tertiary rounded-4" type="search" style="color: #65a30d;" placeholder="CAUTARE CARTE" aria-label="Search" name="query">
                 </form>
-                <button class="btn btn-success bg-body-success rounded-4 shadow" style="font-size: larger; " type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                <button class="navbar-toggler btn btn-success bg-body-success shadow text-light border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                <button class="shadow rounded-5 navbar-toggler btn border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" style="color: white;" aria-controls="offcanvasDarkNavbar">
                   <i class="fa-solid fa-bars"></i>
                 </button>
               </div>
               <div class="offcanvas offcanvas-end text-bg-light" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-                <div class="offcanvas-header d-flex justify-content-around gap-3" style="height: 100px;">
+                <div class="gap-3">
                   {% if request.user.is_authenticated %}
-                    <a href="{% url 'myaccount' %}" class="btn btn-success d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded-4 shadow" style="color: white; text-decoration: none; margin-top: 1vh;width: 60%; height: 100%;"><button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: larger; width: 100%;height: 100%;"><i class="fa-solid fa-user"></i>&nbsp;Contul meu</button></a>
-                    <a href="{% url 'wishlist' %}" class="btn btn-success d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded-4 shadow" style="color: white; text-decoration: none; margin-top: 1vh;width: 60%; height: 100%;"><button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: larger; width: 100%;height: 100%;"><i class="fa-solid fa-heart"></i>&nbsp;Favorite</button></a>
+                    <div class="d-flex justify-content-center align-self-center" style="margin-bottom: 5%;margin-top: 20px;margin-right: 15px;">
+                      <img class="profile-pic shadow" src="{{ user.customer.profile_pic.url }}" width="250px" height="250px" style="border-radius: 50%;">
+                    </div>
+                    <div>
+                      <p class="text-center" style="font-size: 25px;">{% firstof user.get_full_name user.username %}</p>
+                      <p class="text-center" style="font-size: 25px;" >{{user.customer.email}}</p>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-center gap-2 mb-2">
+                      <a href="{% url 'myaccount' %}" class="btn btn-success d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded-4 shadow" style="color: white; text-decoration: none; margin-top: 1vh;width: 180px; height: 60px;"><button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: larger; width: 100%;height: 100%;"><i class="fa-solid fa-user"></i>&nbsp;Contul meu</button></a>
+                      <a href="{% url 'wishlist' %}" class="btn btn-success d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded-4 shadow" style="color: white; text-decoration: none; margin-top: 1vh;width: 180px; height: 60px;"><button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: larger; width: 100%;height: 100%;"><i class="fa-solid fa-heart"></i>&nbsp;Favorite</button></a>
+                    </div>
                   {% else %}
-                  <a href="{% url 'login' %}" class="btn btn-success d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded-4 shadow" style="color: white; text-decoration: none; margin-top: 1vh;width: 60%; height: 100%;">
+                  <div class="d-flex justify-content-center gap-2 mb-2">
+                    <a href="{% url 'login' %}" class="btn btn-success d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded-4 shadow" style="color: white; text-decoration: none; margin-top: 1vh;width: 180px; height: 60px;">
+                      <button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: larger; width: 100%;height: 100%;">
+                        <i class="fa-solid fa-right-to-bracket"></i>&nbsp;Conectare
+                      </button>
+                    </a>
+                    <a href="{% url 'signup' %}" class="btn btn-success d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded-4 shadow" style="color: white; text-decoration: none; margin-top: 1vh;width: 180px; height: 60px;">
+                      <button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: larger; width: 100%;height: 100%;">
+                        <i class="fa-solid fa-user-plus"></i>&nbsp;Inregistrare
+                      </button>
+                    </a>
+                  </div>
+                  <!-- <a href="{% url 'login' %}" class="btn btn-success d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded-4 shadow" style="color: white; text-decoration: none; margin-top: 1vh;width: 60%; height: 100%;">
                     <button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: larger; width: 100%;height: 100%;"><i class="fa-solid fa-right-to-bracket"></i>&nbsp;Conectare</button>
                   </a>
-                  <a href="{% url 'signup' %}" class="btn btn-success d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded-4 shadow" style="color: white; text-decoration: none; margin-top: 1vh;width: 60%; height: 100%;"><button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: larger; width: 100%;height: 100%;"><i class="fa-solid fa-user-plus"></i>&nbsp;Inregistrare</button></a>                  
+                  <a href="{% url 'signup' %}" class="btn btn-success d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded-4 shadow" style="color: white; text-decoration: none; margin-top: 1vh;width: 60%; height: 100%;">
+                    <button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: larger; width: 100%;height: 100%;"><i class="fa-solid fa-user-plus"></i>&nbsp;Inregistrare</button>
+                  </a>                   -->
                   {% endif %}
                 </div> 
                 {% if request.user.is_authenticated %}
@@ -54,36 +77,88 @@
                 <hr>
                 <div class="offcanvas-header">
                   <h5 class="offcanvas-title text-success mx-auto"><b><i class="fa-solid fa-filter"></i>&nbsp;Sectiuni:</b></h5>
-                </div>             
+                </div>
+                {% if request.user.is_authenticated %}             
                 <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                      <li class="nav-item">
-                        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 43vh;">
-                          <div class="menu">
+                    <div class="navbar-nav me-auto my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 193px;">
+                      <div class="menu">
                             {% menu %}
-                          </div>
-                        </ul>
-                      </li>
-                      <hr>
-                      <li class="nav-item dropdown-center">
-                        <a class="nav-link mt-1" style="font-size: larger;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          <h5 class="d-flex justify-content-center text-success"><b><i class="fa-solid fa-file"></i>&nbsp;Despre noi&nbsp;<i class="fa-solid fa-sort-down"></i></b></h5>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-center gap-2" style="margin-bottom: -15px;">
+                      <a href="{% url 'contact' %}" class="btn btn-success d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded-4 shadow" style="color: white; text-decoration: none; margin-top: 1vh;width: 180px; height: 60px;">
+                        <button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: larger; width: 100%;height: 100%;">
+                          <i class="fa-solid fa-phone"></i>&nbsp;<b>Contact</b>
+                        </button>
+                      </a>
+                      <a href="{% url 'viziune' %}" class="btn btn-success d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded-4 shadow" style="color: white; text-decoration: none; margin-top: 1vh;width: 180px; height: 60px;">
+                        <button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: larger; width: 100%;height: 100%;">
+                          <i class="fa-solid fa-eye"></i>&nbsp;<b>Viziune</b>
+                        </button>
+                      </a>
+                    </div>
+                </div>
+                {% else %}             
+                <div class="offcanvas-body">
+                    <div class="navbar-nav me-auto my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 65vh;">
+                      <div class="menu">
+                            {% menu %}
+                      </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-center gap-2 mb-4">
+                  <a href="{% url 'contact' %}" class="btn btn-success d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded-4 shadow" style="color: white; text-decoration: none; margin-top: 1vh;width: 180px; height: 60px;">
+                    <button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: larger; width: 100%;height: 100%;">
+                      <i class="fa-solid fa-phone"></i>&nbsp;<b>Contact</b>
+                    </button>
+                  </a>
+                  <a href="{% url 'viziune' %}" class="btn btn-success d-flex align-items-center justify-content-center text-bg-success bg-body-success rounded-4 shadow" style="color: white; text-decoration: none; margin-top: 1vh;width: 180px; height: 60px;">
+                    <button class="text-bg-success rounded mx-auto border-0 rounded" style="font-size: larger; width: 100%;height: 100%;">
+                      <i class="fa-solid fa-eye"></i>&nbsp;<b>Viziune</b>
+                    </button>
+                  </a>
+                </div>
+                <!-- <li class="nav-item dropdown-center">
+                  <div class="btn-group dropup">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropup
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li class="d-flex justify-content-center">
+                        <a class="dropdown-item btn rounded-4 shadow bg-success text-light d-flex justify-content-center" href="{% url 'contact' %}" style="color: white; font-size: larger;width: 70%;">
+                          <i class="fa-solid fa-phone"></i>&nbsp;<b>Contact</b>
                         </a>
-                        <ul class="dropdown-menu border-0 bg-light">
-                          <li class="d-flex justify-content-center">
-                            <a class="dropdown-item btn rounded-4 shadow bg-success text-light d-flex justify-content-center" href="{% url 'contact' %}" style="color: white; font-size: larger;width: 70%;">
-                              <i class="fa-solid fa-phone"></i>&nbsp;<b>Contact</b>
-                            </a>
-                          </li>
-                          <li class="d-flex justify-content-center">
-                            <a class="dropdown-item btn rounded-4 shadow bg-success text-light mt-3 d-flex justify-content-center" href="{% url 'viziune' %}" style="color: white; font-size: larger;width: 70%;">
-                              <i class="fa-solid fa-eye"></i>&nbsp;<b>Viziune</b>
-                            </a>
-                          </li>
-                        </ul>
+                      </li>
+                      <li class="d-flex justify-content-center">
+                        <a class="dropdown-item btn rounded-4 shadow bg-success text-light mt-3 d-flex justify-content-center" href="{% url 'viziune' %}" style="color: white; font-size: larger;width: 70%;">
+                          <i class="fa-solid fa-eye"></i>&nbsp;<b>Viziune</b>
+                        </a>
                       </li>
                     </ul>
-                </div>
+                  </div> -->
+                  
+                  <!-- <a class="nav-link mt-1" style="font-size: larger;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <h5 class="d-flex justify-content-center text-success"><b><i class="fa-solid fa-file"></i>&nbsp;Despre noi&nbsp;<i class="fa-solid fa-sort-down"></i></b></h5>
+                  </a> -->
+                  <!-- <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropup
+                  </button>
+                  <ul class="dropdown-menu border-0 bg-light">
+                    <li class="d-flex justify-content-center">
+                      <a class="dropdown-item btn rounded-4 shadow bg-success text-light d-flex justify-content-center" href="{% url 'contact' %}" style="color: white; font-size: larger;width: 70%;">
+                        <i class="fa-solid fa-phone"></i>&nbsp;<b>Contact</b>
+                      </a>
+                    </li>
+                    <li class="d-flex justify-content-center">
+                      <a class="dropdown-item btn rounded-4 shadow bg-success text-light mt-3 d-flex justify-content-center" href="{% url 'viziune' %}" style="color: white; font-size: larger;width: 70%;">
+                        <i class="fa-solid fa-eye"></i>&nbsp;<b>Viziune</b>
+                      </a>
+                    </li>
+                  </ul> -->
+                <!-- </li>
+              </ul> -->
+                {% endif %}
               </div>
             </div>
           </nav>
