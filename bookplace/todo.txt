@@ -1,8 +1,9 @@
+-payment
 -new search button
 -search filter
 -search users
 -carousels frontpage
--cautare vocala
+-X cautare vocala
 -gogle recapcha
 -newsletter(autor,editura)
 -contact
